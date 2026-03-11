@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCategoryScroll();
     initVideoOptimization();
     initMobileMenu();
+    initServiceCards(); // NEW - Services section interactions
+    initServiceLinks(); // NEW - Handle "Read More" clicks
     
     // Log success
     console.log('Mediajos Productions: All systems initialized 🎬');
@@ -114,6 +116,22 @@ function initScrollAnimations() {
             });
         });
         
+        // Animate service items with staggered reveal
+        gsap.utils.toArray('.service-item').forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: 'power3.out'
+            });
+        });
+        
         // Animate portfolio items with staggered reveal
         gsap.utils.toArray('.portfolio-item').forEach((item, index) => {
             gsap.from(item, {
@@ -199,7 +217,7 @@ function initFallbackAnimations() {
     }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
     
     // Observe elements
-    document.querySelectorAll('.section-header, .portfolio-item, .aperture-item, .quote-container, .category-section').forEach(el => {
+    document.querySelectorAll('.section-header, .service-item, .portfolio-item, .aperture-item, .quote-container, .category-section').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observer.observe(el);
@@ -258,9 +276,6 @@ function initPortfolioHover() {
             if (img) {
                 img.style.filter = 'brightness(1.1) contrast(1.1)';
             }
-            
-            // Play subtle shutter sound (if you add audio later)
-            // playShutterClick();
         });
         
         item.addEventListener('mouseleave', () => {
@@ -274,7 +289,80 @@ function initPortfolioHover() {
 }
 
 // ========================================
-// 6. LOADING ANIMATION (Wireframe Logo)
+// 6. SERVICE CARDS INTERACTIONS (NEW)
+// ========================================
+function initServiceCards() {
+    
+    const serviceItems = document.querySelectorAll('.service-item');
+    
+    serviceItems.forEach(item => {
+        // Add subtle hover effect beyond CSS
+        item.addEventListener('mouseenter', () => {
+            const icon = item.querySelector('.service-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.2) rotate(5deg)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const icon = item.querySelector('.service-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0)';
+            }
+        });
+    });
+}
+
+// ========================================
+// 7. SERVICE LINKS HANDLER (NEW)
+// ========================================
+function initServiceLinks() {
+    
+    const serviceLinks = document.querySelectorAll('.service-link');
+    
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
+            
+            if (target) {
+                // Add shutter effect
+                const shutterOverlay = document.querySelector('.shutter-overlay');
+                if (shutterOverlay) {
+                    shutterOverlay.classList.add('active');
+                    
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        setTimeout(() => {
+                            shutterOverlay.classList.remove('active');
+                        }, 500);
+                    }, 300);
+                } else {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Highlight the target section briefly
+                target.style.transition = 'all 0.5s ease';
+                target.style.boxShadow = 'inset 0 0 30px rgba(212, 175, 55, 0.3)';
+                setTimeout(() => {
+                    target.style.boxShadow = 'none';
+                }, 1000);
+            }
+        });
+    });
+}
+
+// ========================================
+// 8. LOADING ANIMATION
 // ========================================
 function initLoadingAnimation() {
     
@@ -332,7 +420,7 @@ function initLoadingAnimation() {
 }
 
 // ========================================
-// 7. VIDEO PREVIEW OPTIMIZATION
+// 9. VIDEO PREVIEW OPTIMIZATION
 // ========================================
 function initVideoPreviews() {
     
@@ -367,12 +455,12 @@ function initVideoPreviews() {
 }
 
 // ========================================
-// 8. VIDEO OPTIMIZATION
+// 10. VIDEO OPTIMIZATION
 // ========================================
 function initVideoOptimization() {
     
     // Lazy load videos
-    const videoContainers = document.querySelectorAll('.hero-video-container, .video-thumb');
+    const videoContainers = document.querySelectorAll('.hero-video-container, .video-thumb, .category-hero-video');
     
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -393,7 +481,7 @@ function initVideoOptimization() {
 }
 
 // ========================================
-// 9. NAME TAGS ANIMATION CONTROL
+// 11. NAME TAGS ANIMATION CONTROL
 // ========================================
 function initNameTags() {
     
@@ -432,7 +520,7 @@ function initNameTags() {
 }
 
 // ========================================
-// 10. SOCIAL ICONS HOVER EFFECTS
+// 12. SOCIAL ICONS HOVER EFFECTS
 // ========================================
 function initSocialIcons() {
     
@@ -458,7 +546,7 @@ function initSocialIcons() {
 }
 
 // ========================================
-// 11. CONTACT ITEMS HOVER EFFECT
+// 13. CONTACT ITEMS HOVER EFFECT
 // ========================================
 function initContactHover() {
     
@@ -491,7 +579,7 @@ function initContactHover() {
 }
 
 // ========================================
-// 12. SMOOTH SCROLL FOR NAVIGATION
+// 14. SMOOTH SCROLL FOR NAVIGATION
 // ========================================
 function initSmoothScroll() {
     
@@ -528,7 +616,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// 13. CATEGORY SCROLL FROM PORTFOLIO
+// 15. CATEGORY SCROLL FROM PORTFOLIO
 // ========================================
 function initCategoryScroll() {
     
@@ -576,7 +664,7 @@ function initCategoryScroll() {
 }
 
 // ========================================
-// 14. MOBILE MENU
+// 16. MOBILE MENU
 // ========================================
 function initMobileMenu() {
     
@@ -637,7 +725,7 @@ function initMobileMenu() {
 }
 
 // ========================================
-// 15. TOAST NOTIFICATION
+// 17. TOAST NOTIFICATION
 // ========================================
 function showToast(message) {
     const toast = document.createElement('div');
@@ -666,7 +754,7 @@ function showToast(message) {
 }
 
 // ========================================
-// 16. PARALLAX EFFECT ON HERO
+// 18. PARALLAX EFFECT ON HERO
 // ========================================
 function initParallax() {
     
@@ -684,7 +772,7 @@ function initParallax() {
 }
 
 // ========================================
-// 17. KEYBOARD NAVIGATION
+// 19. KEYBOARD NAVIGATION
 // ========================================
 document.addEventListener('keydown', (e) => {
     // ESC key closes any open overlays
@@ -705,7 +793,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// 18. ACTIVE NAVIGATION ON SCROLL
+// 20. ACTIVE NAVIGATION ON SCROLL
 // ========================================
 function initActiveNavigation() {
     
@@ -735,7 +823,7 @@ function initActiveNavigation() {
 }
 
 // ========================================
-// 19. RESIZE HANDLER
+// 21. RESIZE HANDLER
 // ========================================
 window.addEventListener('resize', () => {
     // Update mobile menu visibility
@@ -752,7 +840,7 @@ window.addEventListener('resize', () => {
 });
 
 // ========================================
-// 20. PERFORMANCE OPTIMIZATION
+// 22. PERFORMANCE OPTIMIZATION
 // ========================================
 // Defer non-critical tasks
 if ('requestIdleCallback' in window) {
@@ -768,7 +856,7 @@ if ('requestIdleCallback' in window) {
 }
 
 // ========================================
-// 21. PAGE TRANSITION COMPLETE
+// 23. PAGE TRANSITION COMPLETE
 // ========================================
 window.addEventListener('load', () => {
     // Remove shutter overlay if it's active
@@ -784,7 +872,7 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// 22. ERROR HANDLING
+// 24. ERROR HANDLING
 // ========================================
 window.addEventListener('error', (e) => {
     console.log('Mediajos caught an error:', e.message);
@@ -793,7 +881,7 @@ window.addEventListener('error', (e) => {
 });
 
 // ========================================
-// 23. CUSTOM SHUTTER SOUND (Optional)
+// 25. CUSTOM SHUTTER SOUND (Optional)
 // ========================================
 function playShutterClick() {
     // Uncomment and add audio file if you want sound
@@ -805,11 +893,13 @@ function playShutterClick() {
 }
 
 // ========================================
-// 24. DEBUG INFO
+// 26. DEBUG INFO
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Film strip borders: ✅');
 console.log('Shutter transitions: ✅');
+console.log('Services section: ✅');
+console.log('Service cards: ✅');
 console.log('Name tags animation: ✅');
 console.log('Contact section: ✅');
 console.log('Social media icons: ✅');
