@@ -1,5 +1,5 @@
 /* ========================================
-   MEDIAJOS PRODUCTIONS - MAIN STYLESHEET
+   MEDIAJOS PRODUCTIONS - COMPLETE STYLESHEET
    Film-inspired design with shutter effects
    ======================================== */
 
@@ -155,7 +155,7 @@ body {
     padding: 15px 0;
     background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
     z-index: 100;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
@@ -245,6 +245,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: linear-gradient(135deg, #1a1a1a, #4A2C5F);
 }
 
 .hero-badge {
@@ -520,11 +521,6 @@ body {
     opacity: 1;
 }
 
-.portfolio-cta {
-    text-align: center;
-    margin-top: 60px;
-}
-
 /* ----- WHY CHOOSE US SECTION ----- */
 .why-choose-us {
     padding: var(--section-padding);
@@ -748,51 +744,145 @@ body {
     }
 }
 
-/* Trusted By Section */
+/* ========================================
+   NAME TAGS SECTION (CLIENT DISPLAY)
+   ======================================== */
+
 .trusted-by {
-    text-align: center;
     margin-top: 80px;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
 }
 
 .trusted-by h3 {
-    font-size: 24px;
+    text-align: center;
     margin-bottom: 40px;
-    color: var(--text-light);
-    text-transform: uppercase;
+    font-size: 18px;
     letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
 }
 
-.logo-carousel {
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-}
-
-.logo-track {
+/* Film Reel Style Name Tags */
+.name-tags-container {
     display: flex;
-    gap: 50px;
-    animation: scrollLogos 30s linear infinite;
-    width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: rgba(0,0,0,0.3);
+    padding: 20px 0;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-@keyframes scrollLogos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.name-tags-container::before,
+.name-tags-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.logo-track img {
-    height: 50px;
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.7;
+.name-tags-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--primary-black), transparent);
+}
+
+.name-tags-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--primary-black), transparent);
+}
+
+.name-tags-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollNames 40s linear infinite;
+    padding-right: 50px;
+}
+
+.name-tags-track:hover {
+    animation-play-state: paused;
+}
+
+.name-tag {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-right: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.name-tag::before {
+    content: '●';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-gold);
+    font-size: 8px;
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.logo-track img:hover {
+.name-tag:hover {
+    background: var(--primary-gold);
+    color: var(--primary-black);
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+.name-tag:hover::before {
     opacity: 1;
 }
 
-/* ----- FOOTER ----- */
+@keyframes scrollNames {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ========================================
+   CATEGORY SECTIONS
+   ======================================== */
+
+.category-section {
+    padding: 100px 0;
+    background: var(--primary-black);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    scroll-margin-top: 80px;
+    position: relative;
+}
+
+.category-section:nth-child(even) {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%);
+}
+
+.category-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   FOOTER SECTION
+   ======================================== */
+
 .footer {
     background: #111;
     padding: 60px 0 20px;
@@ -815,6 +905,14 @@ body {
 .footer-logo p {
     color: rgba(255,255,255,0.6);
     font-size: 14px;
+}
+
+.footer-tagline {
+    font-size: 12px;
+    color: var(--primary-gold);
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
 }
 
 .footer-links h4,
@@ -845,43 +943,114 @@ body {
     color: var(--primary-gold);
 }
 
-.footer-contact p {
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 10px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+/* Contact Items */
+.footer-contact .contact-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    text-decoration: none;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
     transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    background: var(--primary-gold);
-    color: var(--primary-black);
-    border-color: var(--primary-gold);
+.footer-contact .contact-item:hover {
+    transform: translateX(5px);
+    color: var(--primary-gold);
 }
 
+.footer-contact .contact-icon {
+    font-size: 18px;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+    min-width: 25px;
+}
+
+.footer-contact .contact-link {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact .contact-link:hover {
+    color: var(--primary-gold);
+}
+
+.footer-contact .contact-text {
+    line-height: 1.4;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gold);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.social-icon:hover::before {
+    transform: translateY(0);
+}
+
+.social-inner {
+    position: relative;
+    z-index: 2;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover .social-inner {
+    color: var(--primary-black);
+}
+
+/* Individual platform colors on hover */
+.social-icon.instagram:hover { border-color: #E4405F; }
+.social-icon.facebook:hover { border-color: #1877F2; }
+.social-icon.tiktok:hover { border-color: #000000; }
+.social-icon.youtube:hover { border-color: #FF0000; }
+
+/* Footer Bottom */
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.4);
-    font-size: 14px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-/* ----- SHUTTER OVERLAY (for page transitions) ----- */
+/* ========================================
+   SHUTTER OVERLAY (Page Transitions)
+   ======================================== */
+
 .shutter-overlay {
     position: fixed;
     top: 0;
@@ -968,7 +1137,116 @@ body {
     opacity: 0;
 }
 
-/* ----- RESPONSIVE DESIGN ----- */
+/* ========================================
+   VIDEO FALLBACK & OPTIMIZATION
+   ======================================== */
+
+video:error {
+    display: none;
+}
+
+video:error + .video-fallback {
+    display: block;
+}
+
+.video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a, #4A2C5F);
+    z-index: -1;
+}
+
+/* ========================================
+   LOADING ANIMATION
+   ======================================== */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary-black);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-logo-svg {
+    animation: drawLogo 2.5s ease-out forwards;
+}
+
+.loading-text {
+    color: var(--primary-gold);
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 5px;
+    opacity: 0;
+    animation: fadeInText 1s ease-out 2s forwards;
+}
+
+@keyframes drawLogo {
+    0% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    to { opacity: 1; }
+}
+
+/* ========================================
+   TOAST NOTIFICATION
+   ======================================== */
+
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-gold);
+    color: var(--primary-black);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    z-index: 10000;
+    animation: toastFade 2s ease forwards;
+}
+
+@keyframes toastFade {
+    0% { opacity: 0; transform: translate(-50%, 20px); }
+    20% { opacity: 1; transform: translate(-50%, 0); }
+    80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 60px;
@@ -1012,10 +1290,28 @@ body {
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-contact .contact-item {
+        justify-content: center;
     }
     
     .social-icons {
         justify-content: center;
+    }
+    
+    .name-tag {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .category-section {
+        padding: 60px 0;
+    }
+    
+    .quote-text {
+        font-size: 24px;
     }
 }
 
@@ -1028,12 +1324,29 @@ body {
         font-size: 32px;
     }
     
-    .quote-text {
-        font-size: 24px;
+    .hero-badge {
+        top: 70px;
+        right: 10px;
+    }
+    
+    .badge-logo {
+        width: 60px;
+    }
+    
+    .name-tag {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .footer-contact .contact-item {
+        font-size: 13px;
     }
 }
 
-/* ----- UTILITY CLASSES ----- */
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
 .text-gold {
     color: var(--primary-gold);
 }
@@ -1046,27 +1359,8 @@ body {
     display: none;
 }
 
-/* ----- LOADING ANIMATION (for wireframe logo) ----- */
-.loading-logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
-    animation: drawLogo 2s ease-out forwards;
-}
-
-@keyframes drawLogo {
-    0% {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
