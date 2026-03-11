@@ -11,6 +11,11 @@
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // Fallback if GSAP fails to load
+        window.gsap = window.gsap || { registerPlugin: function(){}, to: function(){}, from: function(){}, utils: { toArray: function(){ return []; } } };
+        console.log('Mediajos Productions - Loading...');
+    </script>
 </head>
 <body>
     <!-- FILM STRIP TOP BORDER (Animated) -->
@@ -28,7 +33,6 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#why-us">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-camera-icon">
                 <img src="assets/media/01-LOGOS/First-Design/first-design-camera-icon-only.png" 
@@ -49,7 +53,7 @@
 
         <!-- Background Video -->
         <div class="hero-video-container">
-            <video autoplay muted loop playsinline class="hero-video">
+            <video autoplay muted loop playsinline class="hero-video" preload="metadata">
                 <source src="assets/media/02-HERO-SECTION/hero-full-loop.mp4" type="video/mp4">
             </video>
             <!-- Film Grain Overlay -->
@@ -80,7 +84,7 @@
             <!-- Portfolio Grid (6 Categories) -->
             <div class="portfolio-grid">
                 <!-- Corporate -->
-                <a href="corporate.html" class="portfolio-item shutter-link">
+                <a href="#corporate-section" class="portfolio-item shutter-link">
                     <div class="portfolio-image">
                         <img src="assets/media/03-MAIN-GRID-THUMBNAILS/corporate-thumb.jpg" 
                              alt="Corporate Events">
@@ -92,7 +96,7 @@
                 </a>
 
                 <!-- Documentaries -->
-                <a href="documentaries.html" class="portfolio-item shutter-link">
+                <a href="#documentaries-section" class="portfolio-item shutter-link">
                     <div class="portfolio-image">
                         <img src="assets/media/03-MAIN-GRID-THUMBNAILS/documentaries-thumb.jpg" 
                              alt="Documentaries">
@@ -103,7 +107,7 @@
                 </a>
 
                 <!-- Photography -->
-                <a href="photography.html" class="portfolio-item shutter-link">
+                <a href="#photography-section" class="portfolio-item shutter-link">
                     <div class="portfolio-image">
                         <img src="assets/media/03-MAIN-GRID-THUMBNAILS/photography-thumb.jpg" 
                              alt="Photography">
@@ -114,7 +118,7 @@
                 </a>
 
                 <!-- Weddings -->
-                <a href="weddings.html" class="portfolio-item shutter-link">
+                <a href="#weddings-section" class="portfolio-item shutter-link">
                     <div class="portfolio-image video-thumb">
                         <img src="assets/media/03-MAIN-GRID-THUMBNAILS/weddings-thumb.jpg" 
                              alt="Weddings">
@@ -125,19 +129,8 @@
                     <span class="portfolio-tag">CINEMATIC</span>
                 </a>
 
-                <!-- Editing -->
-                <a href="editing.html" class="portfolio-item shutter-link">
-                    <div class="portfolio-image">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/editing-thumb.jpg" 
-                             alt="Editing">
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">EDITING</h3>
-                    <span class="portfolio-tag">POST-PRODUCTION</span>
-                </a>
-
                 <!-- Video Production -->
-                <a href="video-production.html" class="portfolio-item shutter-link">
+                <a href="#video-production-section" class="portfolio-item shutter-link">
                     <div class="portfolio-image video-thumb">
                         <img src="assets/media/03-MAIN-GRID-THUMBNAILS/video-production-thumb.jpg" 
                              alt="Video Production">
@@ -147,10 +140,6 @@
                     <h3 class="portfolio-title">VIDEO PRODUCTION</h3>
                     <span class="portfolio-tag">BTS & REELS</span>
                 </a>
-            </div>
-
-            <div class="portfolio-cta">
-                <a href="#" class="btn btn-secondary shutter-click">Discover Complete Portfolio</a>
             </div>
         </div>
 
@@ -218,20 +207,102 @@
                 <p class="quote-author">— Mediajos Productions</p>
             </div>
 
-            <!-- Trusted By Section -->
+            <!-- TRUSTED BY SECTION - NAME TAGS ANIMATION -->
             <div class="trusted-by">
-                <h3>Trusted by Industry Leaders</h3>
-                <div class="logo-carousel">
-                    <!-- Client logos will go here -->
-                    <div class="logo-track">
-                        <img src="assets/media/04-CORPORATE/client-logos/eagles-rescue.png" alt="Eagles Rescue">
-                        <img src="assets/media/04-CORPORATE/client-logos/csquared.png" alt="Csquared">
-                        <img src="assets/media/04-CORPORATE/client-logos/40-under-40.png" alt="40 under 40">
-                        <img src="assets/media/04-CORPORATE/client-logos/ntv.png" alt="NTV">
-                        <img src="assets/media/04-CORPORATE/client-logos/east-africa-property.png" alt="East Africa Property">
-                        <!-- Add more as needed -->
+                <h3 class="section-subtitle">Trusted by Industry Leaders</h3>
+                
+                <!-- Film Reel Style Name Tags -->
+                <div class="name-tags-container">
+                    <div class="name-tags-track">
+                        <span class="name-tag">NTV</span>
+                        <span class="name-tag">East Africa Property Investment</span>
+                        <span class="name-tag">Girls Amplify</span>
+                        <span class="name-tag">IPF</span>
+                        <span class="name-tag">DARAJA PLUS</span>
+                        <span class="name-tag">ALT EXPO</span>
+                        <span class="name-tag">ILO</span>
+                        <span class="name-tag">ATLAS</span>
+                        <span class="name-tag">Brooke</span>
+                        <span class="name-tag">Eagles Rescue</span>
+                        <span class="name-tag">Csquared</span>
+                        <span class="name-tag">40 under 40</span>
+                        <span class="name-tag">SUNOIDA</span>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="name-tags-track" aria-hidden="true">
+                        <span class="name-tag">NTV</span>
+                        <span class="name-tag">East Africa Property Investment</span>
+                        <span class="name-tag">Girls Amplify</span>
+                        <span class="name-tag">IPF</span>
+                        <span class="name-tag">DARAJA PLUS</span>
+                        <span class="name-tag">ALT EXPO</span>
+                        <span class="name-tag">ILO</span>
+                        <span class="name-tag">ATLAS</span>
+                        <span class="name-tag">Brooke</span>
+                        <span class="name-tag">Eagles Rescue</span>
+                        <span class="name-tag">Csquared</span>
+                        <span class="name-tag">40 under 40</span>
+                        <span class="name-tag">SUNOIDA</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY SECTIONS (Appear on scroll) -->
+    
+    <!-- Corporate Section -->
+    <section id="corporate-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Corporate Events</h2>
+            <div class="category-content">
+                <!-- Corporate content will be populated from your media -->
+                <p class="category-description">Professional coverage for corporate events, conferences, and brand storytelling.</p>
+                <!-- Your corporate photos will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Weddings Section -->
+    <section id="weddings-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Weddings</h2>
+            <div class="category-content">
+                <p class="category-description">Cinematic wedding films capturing your special day with emotion and artistry.</p>
+                <!-- Your wedding photos/videos will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentaries Section -->
+    <section id="documentaries-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Documentaries</h2>
+            <div class="category-content">
+                <p class="category-description">Powerful storytelling through documentary films that inform and inspire.</p>
+                <!-- Your documentary stills will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section id="photography-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Photography</h2>
+            <div class="category-content">
+                <p class="category-description">Stunning photography that freezes moments in time with artistic vision.</p>
+                <!-- Your photography gallery will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Production Section -->
+    <section id="video-production-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Video Production</h2>
+            <div class="category-content">
+                <p class="category-description">Full-service video production from concept to final edit.</p>
+                <!-- Your BTS photos will appear here -->
             </div>
         </div>
     </section>
@@ -248,6 +319,7 @@
                          alt="Mediajos Productions" 
                          class="logo-footer">
                     <p>Premium Video & Photography</p>
+                    <p class="footer-tagline">Framing Stories, Capturing Souls</p>
                 </div>
 
                 <div class="footer-links">
@@ -256,29 +328,46 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#why-us">Why Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p>Email: info@mediajos.com</p>
-                    <p>Phone: +254 700 000 000</p>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:+254715024685" class="contact-link">+254 715 024 685</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <a href="mailto:mediajosproduction@gmail.com" class="contact-link">mediajosproduction@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span class="contact-text">Nairobi, Kenya<br>East Africa</span>
+                    </div>
                 </div>
 
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">IG</a>
-                        <a href="#" class="social-icon">FB</a>
-                        <a href="#" class="social-icon">YT</a>
-                        <a href="#" class="social-icon">TW</a>
+                        <a href="https://www.instagram.com/mediajosproductionslimited?igsh=emRibHd4YWRueGwx" target="_blank" class="social-icon instagram" title="Instagram">
+                            <span class="social-inner">IG</span>
+                        </a>
+                        <a href="https://www.facebook.com/share/17GcXub3tP/" target="_blank" class="social-icon facebook" title="Facebook">
+                            <span class="social-inner">FB</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@mediajosproductionsltd?_r=1&_t=ZS-94bQv5vZ6rC" target="_blank" class="social-icon tiktok" title="TikTok">
+                            <span class="social-inner">TT</span>
+                        </a>
+                        <a href="https://youtube.com/@mediajosproductions317?si=7VMXYho0TJnDgker" target="_blank" class="social-icon youtube" title="YouTube">
+                            <span class="social-inner">YT</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Mediajos Productions. All rights reserved.</p>
+                <p>&copy; 2026 Mediajos Productions. All rights reserved. | Nairobi, East Africa</p>
             </div>
         </div>
 
