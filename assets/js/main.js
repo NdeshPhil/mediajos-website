@@ -1,6 +1,6 @@
 // ========================================
 // MEDIAJOS PRODUCTIONS - COMPLETE JAVASCRIPT
-// Your Image, Our Focus
+// Your Image Our Focus
 // ========================================
 
 // Wait for DOM to load
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initLoadingAnimation();
     initVideoOptimization();
+    initCounterAnimation(); // NEW - Stats counter
     
     // Log success
     console.log('Mediajos Productions: All systems initialized 🎬');
@@ -69,7 +70,6 @@ function initHeroVideo() {
     // Ensure video plays smoothly
     heroVideo.play().catch(e => {
         console.log('Autoplay prevented:', e);
-        // Add play button if needed
         addPlayButton(container);
     });
 }
@@ -652,7 +652,44 @@ function initVideoOptimization() {
 }
 
 // ========================================
-// 17. TOAST NOTIFICATION
+// 17. COUNTER ANIMATION FOR STATS (NEW)
+// ========================================
+function initCounterAnimation() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    if (counters.length === 0) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 50; // Divide into 50 steps
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (counter.getAttribute('data-target') === '8' ? '+' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + (counter.getAttribute('data-target') === '8' ? '+' : '');
+                    }
+                }, 30); // 30ms intervals = ~1.5 seconds total
+                
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => {
+        // Set initial value
+        counter.textContent = '0';
+        observer.observe(counter);
+    });
+}
+
+// ========================================
+// 18. TOAST NOTIFICATION
 // ========================================
 function showToast(message) {
     const toast = document.createElement('div');
@@ -664,7 +701,7 @@ function showToast(message) {
 }
 
 // ========================================
-// 18. KEYBOARD NAVIGATION
+// 19. KEYBOARD NAVIGATION
 // ========================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -679,7 +716,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// 19. RESIZE HANDLER
+// 20. RESIZE HANDLER
 // ========================================
 window.addEventListener('resize', () => {
     const navMenu = document.querySelector('.nav-menu');
@@ -695,7 +732,7 @@ window.addEventListener('resize', () => {
 });
 
 // ========================================
-// 20. PAGE LOAD COMPLETE
+// 21. PAGE LOAD COMPLETE
 // ========================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
@@ -703,7 +740,7 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// 21. ERROR HANDLING
+// 22. ERROR HANDLING
 // ========================================
 window.addEventListener('error', (e) => {
     console.log('Mediajos caught an error:', e.message);
@@ -711,14 +748,14 @@ window.addEventListener('error', (e) => {
 });
 
 // ========================================
-// 22. DEBUG INFO
+// 23. DEBUG INFO
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
+console.log('About section: ✅ (Stats counter added)');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
-console.log('Mobile videos: ✅');
-console.log('Editing reels: ✅');
-console.log('Team vibes: ✅');
+console.log('Editing reels: ✅ (Labels updated)');
+console.log('Team vibes: ✅ (Quote updated)');
 console.log('Name tags: ✅');
 console.log('Ready for action!');
