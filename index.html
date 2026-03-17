@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mediajos Productions - Framing Stories, Capturing Souls</title>
+    <title>Mediajos Productions - Your Image, Our Focus</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,13 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        // Fallback if GSAP fails to load
         window.gsap = window.gsap || { registerPlugin: function(){}, to: function(){}, from: function(){}, utils: { toArray: function(){ return []; } } };
         console.log('Mediajos Productions - Loading...');
     </script>
 </head>
 <body>
-    <!-- FILM STRIP TOP BORDER (Animated) -->
+    <!-- FILM STRIP TOP BORDER -->
     <div class="film-strip-top"></div>
 
     <!-- NAVIGATION -->
@@ -31,8 +30,9 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#corporate-section">Work</a></li>
                 <li><a href="#why-us">Why Us</a></li>
             </ul>
             <div class="nav-camera-icon">
@@ -45,125 +45,149 @@
 
     <!-- HERO SECTION -->
     <section id="home" class="hero">
-        <!-- Hero Badge Logo (Top Right) -->
         <div class="hero-badge">
             <img src="assets/media/01-LOGOS/Second-Design/second-design-page2-hero-badge.png" 
                  alt="Mediajos Productions" 
                  class="badge-logo">
         </div>
 
-        <!-- Background Video -->
         <div class="hero-video-container">
-            <video autoplay muted loop playsinline class="hero-video" preload="metadata">
-                <source src="assets/media/02-HERO-SECTION/hero-full-loop.mp4" type="video/mp4">
+            <!-- Poster image shows immediately -->
+            <img src="assets/media/02-HERO-SECTION/hero-poster.jpg" 
+                 alt="Mediajos Productions" 
+                 class="hero-poster"
+                 style="display: none;" onload="this.style.display='block'">
+            
+            <video autoplay muted loop playsinline class="hero-video" 
+                   preload="metadata"
+                   poster="assets/media/02-HERO-SECTION/hero-poster.jpg">
+                <source src="assets/media/02-HERO-SECTION/hero-full-loop-updated.mp4" type="video/mp4">
             </video>
-            <!-- Film Grain Overlay -->
             <div class="film-grain"></div>
         </div>
 
-        <!-- Hero Content (Centered) -->
         <div class="hero-content container">
             <div class="hero-text">
-                <h1 class="hero-title">Framing Stories,<br>Capturing Souls</h1>
-                <p class="hero-subtitle">Elevate your moments with cinematic excellence.</p>
+                <h1 class="hero-title">Your Image,<br>Our Focus</h1>
+                <p class="hero-subtitle">Premium Video & Photography Production in Nairobi, Kenya</p>
                 <a href="#services" class="btn btn-primary shutter-click">Explore Services</a>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION (NEW) -->
-    <section id="services" class="services">
-        <!-- Film Strip Border Top -->
-        <div class="film-strip-section"></div>
+    <!-- ABOUT US SECTION (From Company Profile) -->
+    <section id="about" class="about-us">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="about-text">Media Jos Production Limited is an industry-acclaimed visual production company in Nairobi, Kenya that works with agencies, government departments, and brands as well as individuals to create videos designed to inspire and connect with the audience through clear storytelling.</p>
+                    
+                    <p class="about-text">With years of experience in the business, we understand what our clients need - from professional video content to personal branding and digital marketing. Media Jos Production provides production services to a large wide variety of industries including hospitality, restaurants, schools, retail brands, education, real estate, banking, and automobiles.</p>
+                    
+                    <p class="about-text">Our team of dedicated event videographers in Kenya and East Africa know how to approach each project of every scale, detail, and genre, from single-camera studio interviews to multi-camera commercial shoots, events video coverage, and branding video productions. We offer you ideas and solutions if you wish to use videos to promote your new product, your brand, your vision, or to simply capture the memories of your most awaited event.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/media/09-WHY-CHOOSE-US/team-photo.jpg" alt="Media Jos Team" loading="lazy">
+                    <div class="about-image-overlay">
+                        <span class="play-button">▶</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <div class="film-strip-section"></div>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">What We Offer</h2>
-                <p class="section-subtitle">Comprehensive videography and photography services tailored to meet your unique needs and bring your vision to life with professional excellence.</p>
+                <p class="section-subtitle">Comprehensive production services tailored to meet your unique needs</p>
             </div>
 
-            <!-- Services Grid -->
             <div class="services-grid">
-                
-                <!-- Corporate Events -->
+                <!-- 1. Corporate Events -->
                 <div class="service-item">
                     <div class="service-icon corporate-icon"></div>
                     <h3 class="service-title">Corporate Events</h3>
-                    <p class="service-description">Professional video coverage of conferences, meetings, and corporate functions. We provide comprehensive documentation with multi-camera setups and live streaming capabilities.</p>
+                    <p class="service-description">Professional coverage of business events, including conferences, product launches, and seminars, capturing key moments to enhance brand visibility and preserve memories.</p>
                     <div class="service-features">
                         <span class="feature-tag">Multi-camera setup</span>
                         <span class="feature-tag">Live streaming</span>
                         <span class="feature-tag">Same-day highlights</span>
                     </div>
-                    <a href="#corporate-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#corporate-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
 
-                <!-- Documentaries -->
+                <!-- 2. Documentaries -->
                 <div class="service-item">
                     <div class="service-icon documentary-icon"></div>
                     <h3 class="service-title">Documentaries</h3>
-                    <p class="service-description">Compelling storytelling through documentary-style video production. Our team specializes in creating engaging narratives that capture authentic stories and brand messages.</p>
+                    <p class="service-description">Comprehensive production of documentaries and feature films, blending creativity with storytelling to deliver captivating and insightful content.</p>
                     <div class="service-features">
                         <span class="feature-tag">Story development</span>
                         <span class="feature-tag">Interview setup</span>
                         <span class="feature-tag">Location scouting</span>
                     </div>
-                    <a href="#documentaries-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#documentaries-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
 
-                <!-- Photography -->
-                <div class="service-item">
-                    <div class="service-icon photography-icon"></div>
-                    <h3 class="service-title">Photography</h3>
-                    <p class="service-description">High-quality photography services for events, products, and professional needs. From corporate headshots to product photography, we deliver stunning visual content.</p>
-                    <div class="service-features">
-                        <span class="feature-tag">Studio setup</span>
-                        <span class="feature-tag">On-location shoots</span>
-                        <span class="feature-tag">Digital retouching</span>
-                    </div>
-                    <a href="#photography-section" class="service-link shutter-link">Read More →</a>
-                </div>
-
-                <!-- Weddings & Events -->
-                <div class="service-item">
-                    <div class="service-icon wedding-icon"></div>
-                    <h3 class="service-title">Weddings & Events</h3>
-                    <p class="service-description">Capturing the magic of weddings and special celebrations. Our experienced team ensures every precious moment is preserved with artistic vision and attention to detail.</p>
-                    <div class="service-features">
-                        <span class="feature-tag">Full-day coverage</span>
-                        <span class="feature-tag">Drone footage</span>
-                        <span class="feature-tag">Same-day highlights</span>
-                    </div>
-                    <a href="#weddings-section" class="service-link shutter-link">Read More →</a>
-                </div>
-
-                <!-- Editing Services -->
-                <div class="service-item">
-                    <div class="service-icon editing-icon"></div>
-                    <h3 class="service-title">Editing Services</h3>
-                    <p class="service-description">Post-production and color grading services to bring your vision to life. Professional editing, motion graphics, and visual effects to enhance your video content.</p>
-                    <div class="service-features">
-                        <span class="feature-tag">Color grading</span>
-                        <span class="feature-tag">Motion graphics</span>
-                        <span class="feature-tag">Audio mixing</span>
-                    </div>
-                    <a href="#editing-section" class="service-link shutter-link">Read More →</a>
-                </div>
-
-                <!-- Video Production -->
+                <!-- 3. Video Production -->
                 <div class="service-item">
                     <div class="service-icon video-icon"></div>
                     <h3 class="service-title">Video Production</h3>
-                    <p class="service-description">Music videos, commercials, and creative content production. From concept to completion, we handle all aspects of video production with creative excellence.</p>
+                    <p class="service-description">Expert video production for advertisements, promotional content, event highlights, and storytelling. Delivered with a focus on engaging visuals and impactful narratives.</p>
                     <div class="service-features">
                         <span class="feature-tag">Creative direction</span>
                         <span class="feature-tag">Script development</span>
                         <span class="feature-tag">Production management</span>
                     </div>
-                    <a href="#video-production-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#video-production-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
 
-                <!-- Podcast Production -->
+                <!-- 4. Company Profile Videos -->
+                <div class="service-item">
+                    <div class="service-icon profile-icon"></div>
+                    <h3 class="service-title">Company Profile</h3>
+                    <p class="service-description">Professional company profile videos that showcase your brand story, values, and services. Perfect for marketing, presentations, and digital presence.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Brand storytelling</span>
+                        <span class="feature-tag">Executive interviews</span>
+                        <span class="feature-tag">Facility tours</span>
+                    </div>
+                    <a href="#company-profile-section" class="service-link shutter-link">View Portfolio →</a>
+                </div>
+
+                <!-- 5. Livestream Services -->
+                <div class="service-item">
+                    <div class="service-icon livestream-icon"></div>
+                    <h3 class="service-title">Livestream Services</h3>
+                    <p class="service-description">Seamless live broadcasting for events, conferences, and ceremonies, ensuring real-time engagement and high-quality streaming across multiple platforms.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Multi-platform streaming</span>
+                        <span class="feature-tag">Real-time monitoring</span>
+                        <span class="feature-tag">Interactive features</span>
+                    </div>
+                    <a href="#livestream-section" class="service-link shutter-link">View Portfolio →</a>
+                </div>
+
+                <!-- 6. Podcast Production -->
                 <div class="service-item">
                     <div class="service-icon podcast-icon"></div>
                     <h3 class="service-title">Podcast Production</h3>
@@ -173,614 +197,508 @@
                         <span class="feature-tag">Audio editing</span>
                         <span class="feature-tag">Show notes</span>
                     </div>
-                    <a href="#podcast-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#podcast-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
 
-                <!-- Company Profile Videos -->
+                <!-- 7. Photography -->
                 <div class="service-item">
-                    <div class="service-icon profile-icon"></div>
-                    <h3 class="service-title">Company Profile Videos</h3>
-                    <p class="service-description">Professional company profile videos that showcase your brand story, values, and services. Perfect for marketing, presentations, and digital presence.</p>
+                    <div class="service-icon photography-icon"></div>
+                    <h3 class="service-title">Photography</h3>
+                    <p class="service-description">Professional photography services capturing high-quality images for events, branding, product shoots, and personal projects. Tailored to showcase moments with precision and creativity.</p>
                     <div class="service-features">
-                        <span class="feature-tag">Brand storytelling</span>
-                        <span class="feature-tag">Executive interviews</span>
-                        <span class="feature-tag">Facility tours</span>
+                        <span class="feature-tag">Studio setup</span>
+                        <span class="feature-tag">On-location shoots</span>
+                        <span class="feature-tag">Digital retouching</span>
                     </div>
-                    <a href="#company-profile-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#photography-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
 
-                <!-- Livestream Services -->
+                <!-- 8. Editing Services -->
                 <div class="service-item">
-                    <div class="service-icon livestream-icon"></div>
-                    <h3 class="service-title">Livestream Services</h3>
-                    <p class="service-description">Professional live streaming solutions for events, conferences, and webinars. Multi-camera setups with real-time streaming to multiple platforms.</p>
+                    <div class="service-icon editing-icon"></div>
+                    <h3 class="service-title">Editing Services</h3>
+                    <p class="service-description">Post-production and color grading services to bring your vision to life. Professional editing, motion graphics, and visual effects to enhance your video content.</p>
                     <div class="service-features">
-                        <span class="feature-tag">Multi-platform streaming</span>
-                        <span class="feature-tag">Real-time monitoring</span>
-                        <span class="feature-tag">Interactive features</span>
+                        <span class="feature-tag">Color grading</span>
+                        <span class="feature-tag">Motion graphics</span>
+                        <span class="feature-tag">Audio mixing</span>
                     </div>
-                    <a href="#livestream-section" class="service-link shutter-link">Read More →</a>
+                    <a href="#editing-section" class="service-link shutter-link">View Portfolio →</a>
+                </div>
+
+                <!-- 9. Weddings & Events -->
+                <div class="service-item">
+                    <div class="service-icon wedding-icon"></div>
+                    <h3 class="service-title">Weddings & Events</h3>
+                    <p class="service-description">Capturing the magic of weddings and special celebrations. Our experienced team ensures every precious moment is preserved with artistic vision and attention to detail.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Full-day coverage</span>
+                        <span class="feature-tag">Drone footage</span>
+                        <span class="feature-tag">Same-day highlights</span>
+                    </div>
+                    <a href="#weddings-section" class="service-link shutter-link">View Portfolio →</a>
                 </div>
             </div>
         </div>
-
-        <!-- Film Strip Border Bottom -->
         <div class="film-strip-section bottom"></div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="portfolio">
-        <!-- Film Strip Border Top -->
-        <div class="film-strip-section"></div>
+    <!-- ======================================== -->
+    <!-- PORTFOLIO SECTIONS (New Order)          -->
+    <!-- ======================================== -->
 
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Visual Stories</h2>
-                <p class="section-subtitle">Explore our portfolio of captivating moments across various creative projects</p>
-            </div>
-
-            <!-- Portfolio Grid (6 Categories) -->
-            <div class="portfolio-grid">
-                <!-- Corporate -->
-                <a href="#corporate-section" class="portfolio-item shutter-link">
-                    <div class="portfolio-image">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/corporate-thumb.jpg" 
-                             alt="Corporate Events">
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">CORPORATE</h3>
-                    <span class="portfolio-tag">EVENTS</span>
-                </a>
-
-                <!-- Documentaries -->
-                <a href="#documentaries-section" class="portfolio-item shutter-link">
-                    <div class="portfolio-image">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/documentaries-thumb.jpg" 
-                             alt="Documentaries">
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">DOCUMENTARIES</h3>
-                    <span class="portfolio-tag">FILMS</span>
-                </a>
-
-                <!-- Photography -->
-                <a href="#photography-section" class="portfolio-item shutter-link">
-                    <div class="portfolio-image">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/photography-thumb.jpg" 
-                             alt="Photography">
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">PHOTOGRAPHY</h3>
-                    <span class="portfolio-tag">GALLERY</span>
-                </a>
-
-                <!-- Weddings -->
-                <a href="#weddings-section" class="portfolio-item shutter-link">
-                    <div class="portfolio-image video-thumb">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/weddings-thumb.jpg" 
-                             alt="Weddings">
-                        <div class="play-icon"></div>
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">WEDDINGS</h3>
-                    <span class="portfolio-tag">CINEMATIC</span>
-                </a>
-
-                <!-- Video Production -->
-                <a href="#video-production-section" class="portfolio-item shutter-link">
-                    <div class="portfolio-image video-thumb">
-                        <img src="assets/media/03-MAIN-GRID-THUMBNAILS/video-production-thumb.jpg" 
-                             alt="Video Production">
-                        <div class="play-icon"></div>
-                        <div class="film-strip-hover"></div>
-                    </div>
-                    <h3 class="portfolio-title">VIDEO PRODUCTION</h3>
-                    <span class="portfolio-tag">BTS & REELS</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Film Strip Border Bottom -->
-        <div class="film-strip-section bottom"></div>
-    </section>
-
-    <!-- WHY CHOOSE US SECTION -->
-    <section id="why-us" class="why-choose-us">
-        <div class="container">
-            <!-- Camera Aperture Background Effect -->
-            <div class="aperture-bg"></div>
-
-            <div class="section-header">
-                <h2 class="section-title">Why Choose Mediajos?</h2>
-            </div>
-
-            <!-- Aperture Lens Grid (4 circles in 2x2) -->
-            <div class="aperture-grid">
-                <!-- Experienced Team -->
-                <div class="aperture-item">
-                    <div class="aperture-circle">
-                        <div class="aperture-blades"></div>
-                        <div class="icon-camera-shutter"></div>
-                    </div>
-                    <h3>Experienced Team</h3>
-                    <p>Over 8 years of professional videography and photography experience with a proven track record.</p>
-                </div>
-
-                <!-- Creative Excellence -->
-                <div class="aperture-item">
-                    <div class="aperture-circle">
-                        <div class="aperture-blades"></div>
-                        <div class="icon-film-strip"></div>
-                    </div>
-                    <h3>Creative Excellence</h3>
-                    <p>Innovative storytelling and artistic vision in every project, ensuring your content stands out.</p>
-                </div>
-
-                <!-- Advanced Equipment -->
-                <div class="aperture-item">
-                    <div class="aperture-circle">
-                        <div class="aperture-blades"></div>
-                        <div class="icon-lens"></div>
-                    </div>
-                    <h3>Advanced Equipment</h3>
-                    <p>State-of-the-art cameras, drones, and editing technology to capture and produce the highest quality.</p>
-                </div>
-
-                <!-- Client Satisfaction -->
-                <div class="aperture-item">
-                    <div class="aperture-circle">
-                        <div class="aperture-blades"></div>
-                        <div class="icon-clapperboard"></div>
-                    </div>
-                    <h3>Client Satisfaction</h3>
-                    <p>Dedicated to exceeding expectations and building lasting relationships through personalized service.</p>
-                </div>
-            </div>
-
-            <!-- Quote with Shutter Effect -->
-            <div class="quote-container shutter-reveal">
-                <div class="quote-mark">"</div>
-                <p class="quote-text">Every frame tells a story — we make sure it's yours.</p>
-                <p class="quote-author">— Mediajos Productions</p>
-            </div>
-
-            <!-- TRUSTED BY SECTION - NAME TAGS ANIMATION -->
-            <div class="trusted-by">
-                <h3 class="section-subtitle">Trusted by Industry Leaders</h3>
-                
-                <!-- Film Reel Style Name Tags -->
-                <div class="name-tags-container">
-                    <div class="name-tags-track">
-                        <span class="name-tag">NTV</span>
-                        <span class="name-tag">East Africa Property Investment</span>
-                        <span class="name-tag">Girls Amplify</span>
-                        <span class="name-tag">IPF</span>
-                        <span class="name-tag">DARAJA PLUS</span>
-                        <span class="name-tag">ALT EXPO</span>
-                        <span class="name-tag">ILO</span>
-                        <span class="name-tag">ATLAS</span>
-                        <span class="name-tag">Brooke</span>
-                        <span class="name-tag">Eagles Rescue</span>
-                        <span class="name-tag">Csquared</span>
-                        <span class="name-tag">40 under 40</span>
-                        <span class="name-tag">SUNOIDA</span>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="name-tags-track" aria-hidden="true">
-                        <span class="name-tag">NTV</span>
-                        <span class="name-tag">East Africa Property Investment</span>
-                        <span class="name-tag">Girls Amplify</span>
-                        <span class="name-tag">IPF</span>
-                        <span class="name-tag">DARAJA PLUS</span>
-                        <span class="name-tag">ALT EXPO</span>
-                        <span class="name-tag">ILO</span>
-                        <span class="name-tag">ATLAS</span>
-                        <span class="name-tag">Brooke</span>
-                        <span class="name-tag">Eagles Rescue</span>
-                        <span class="name-tag">Csquared</span>
-                        <span class="name-tag">40 under 40</span>
-                        <span class="name-tag">SUNOIDA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORY SECTIONS (Appear on scroll) -->
-
-    <!-- Corporate Section -->
+    <!-- 1. CORPORATE SECTION -->
     <section id="corporate-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Corporate Events</h2>
-            <p class="category-description">Professional coverage for corporate events, conferences, and brand storytelling.</p>
+            <p class="category-description">Professional coverage of business events, conferences, product launches, and seminars, capturing key moments to enhance brand visibility.</p>
             
-            <!-- Corporate Hero Video -->
             <div class="category-hero-video">
                 <video controls preload="metadata" poster="assets/media/03-MAIN-GRID-THUMBNAILS/corporate-thumb.jpg">
                     <source src="assets/media/04-CORPORATE/corporate-hero-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <div class="video-caption">Corporate Event Highlight Reel</div>
             </div>
             
-            <!-- Corporate Photo Gallery -->
             <h3 class="gallery-title">Photo Gallery</h3>
             <div class="photo-gallery">
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-01-seated-panel.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-02-event-wide.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-03-panel-looking-at-tablet-smiling.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-04-venue-wide.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-05-dignitaries-listening-in-audience.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-06-audience-shot-with-one-standing-as-if-being-addressed.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-07-speaker-closeup.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-08-two-athletes-and-man-in-suit-pose.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-09-event-wide.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-10-handing-over-gift.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-11-nse-delegate-rings-bell-as-the-other-four-clap-on-stage.jpg" alt="Corporate Event" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/04-CORPORATE/photos/corporate-12-stage-wide-shot.jpg" alt="Corporate Event" loading="lazy">
-                </div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-01-seated-panel.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-02-event-wide.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-03-panel-looking-at-tablet-smiling.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-04-venue-wide.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-05-dignitaries-listening-in-audience.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-06-audience-shot-with-one-standing-as-if-being-addressed.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-07-speaker-closeup.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-08-two-athletes-and-man-in-suit-pose.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-09-event-wide.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-10-handing-over-gift.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-11-nse-delegate-rings-bell-as-the-other-four-clap-on-stage.jpg" alt="Corporate Event" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-12-stage-wide-shot.jpg" alt="Corporate Event" loading="lazy"></div>
             </div>
         </div>
     </section>
 
-    <!-- Weddings Section -->
-    <section id="weddings-section" class="category-section">
-        <div class="container">
-            <h2 class="section-title">Weddings</h2>
-            <p class="category-description">Cinematic wedding films capturing your special day with emotion and artistry.</p>
-            
-            <!-- Weddings Hero Video -->
-            <div class="category-hero-video">
-                <video controls preload="metadata" poster="assets/media/03-MAIN-GRID-THUMBNAILS/weddings-thumb.jpg">
-                    <source src="assets/media/05-WEDDINGS/weddings-hero-reel.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-caption">Wedding Highlight Reel</div>
-            </div>
-            
-            <!-- Wedding Bonus Clips -->
-            <h3 class="gallery-title">Special Moments</h3>
-            <div class="video-grid">
-                <div class="video-item">
-                    <video controls preload="metadata">
-                        <source src="assets/media/05-WEDDINGS/bonus-clips/first-dance.mp4" type="video/mp4">
-                    </video>
-                    <p>First Dance</p>
-                </div>
-                <div class="video-item">
-                    <video controls preload="metadata">
-                        <source src="assets/media/05-WEDDINGS/bonus-clips/first-kiss-moment.mp4" type="video/mp4">
-                    </video>
-                    <p>First Kiss</p>
-                </div>
-                <div class="video-item">
-                    <video controls preload="metadata">
-                        <source src="assets/media/05-WEDDINGS/bonus-clips/couple-walk-away.mp4" type="video/mp4">
-                    </video>
-                    <p>Couple's Exit</p>
-                </div>
-            </div>
-            
-            <!-- Wedding Photo Gallery -->
-            <h3 class="gallery-title">Photo Gallery</h3>
-            <div class="photo-gallery">
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-01-bride-lifting-her-veil.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-02-groomsmen-celebrating-couple.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-03-groom-and-groomsmen.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-04-bridesmaids-crazy-photo.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-05-bride-swinging-on-a-tree-stem-as-groom-watches-smiling.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-06-couple-holding-each-other-outdoors-under-a-neon-lit-gazebo.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-07-couple-kiss-as-crowd-cheers.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-08-page-boys-and-flower-girls-crazy-photo.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-09-wedding-cake.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-10-couple-walking-down-house-stairs.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-11-bride-and-bridesmaids-happy-moment-pose.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-12-garden-venue-shot.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-13-bride-pushing-groom-inside-a-bellman-cart.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-14-bride-jokingly-pulls-groom-from-groomsmen.jpg" alt="Wedding" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/05-WEDDINGS/photos/wedding-15-couple-silhouette-at-night.jpg" alt="Wedding" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Documentaries Section -->
+    <!-- 2. DOCUMENTARIES SECTION (UPDATED PHOTOS) -->
     <section id="documentaries-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Documentaries</h2>
-            <p class="category-description">Powerful storytelling through documentary films that inform and inspire.</p>
+            <p class="category-description">Comprehensive production of documentaries and feature films, blending creativity with storytelling to deliver captivating and insightful content.</p>
             
-            <!-- Documentary Trailer -->
             <div class="category-hero-video">
                 <video controls preload="metadata" poster="assets/media/03-MAIN-GRID-THUMBNAILS/documentaries-thumb.jpg">
                     <source src="assets/media/06-DOCUMENTARIES/doc-trailer.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <div class="video-caption">Documentary Trailer</div>
             </div>
             
-            <!-- Documentary Stills Gallery -->
+            <!-- Documentary BTS (Horizontal) -->
+            <h3 class="gallery-title">Behind the Scenes</h3>
+            <div class="category-hero-video">
+                <video controls class="horizontal-video" poster="assets/media/06-DOCUMENTARIES/doc-bts-poster.jpg">
+                    <source src="assets/media/06-DOCUMENTARIES/documentary-bts.mp4" type="video/mp4">
+                </video>
+                <div class="video-caption">Documentary Production</div>
+            </div>
+            
             <h3 class="gallery-title">Behind the Stories</h3>
             <div class="photo-gallery">
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-01-landscape-drone-shot.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-02-interview.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-03-subject.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-04-location-drone-shot.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-05-interview.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-06-interview.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-07-subject.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-08-landscape-wide.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-09-subject.jpg" alt="Documentary" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/06-DOCUMENTARIES/stills/doc-still-10-location-drone-shot.jpg" alt="Documentary" loading="lazy">
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-01-landscape-drone-shot.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-02-interview.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-03-subject-updated.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-04-location-drone-shot.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-05-interview.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-06-interview.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-07-subject-updated.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-08-landscape-wide-updated.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-09-subject-updated.jpg" alt="Documentary" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/06-DOCUMENTARIES/stills/doc-still-10-location-drone-shot.jpg" alt="Documentary" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. VIDEO PRODUCTION SECTION -->
+    <section id="video-production-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Video Production</h2>
+            <p class="category-description">Expert video production for advertisements, promotional content, event highlights, and storytelling.</p>
+            
+            <h3 class="gallery-title">Behind the Scenes</h3>
+            <div class="photo-gallery">
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-01-holding-camera.jpg" alt="Behind the Scenes" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-02-holding-camera-next-to-stage.jpg" alt="Behind the Scenes" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-03-communication.jpg" alt="Behind the Scenes" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-04-editing-suite.jpg" alt="Behind the Scenes" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-05-live-stream-setup.jpg" alt="Behind the Scenes" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-06-equipment.jpg" alt="Behind the Scenes" loading="lazy"></div>
+            </div>
+            
+            <!-- Crew in Action BTS (Vertical) -->
+            <h3 class="gallery-title">Crew in Action</h3>
+            <div class="mobile-video-grid">
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/08-VIDEO-PRODUCTION/crew-action-poster.jpg">
+                        <source src="assets/media/08-VIDEO-PRODUCTION/crew-action-bts.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Our Team in Action</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Photography Section -->
+    <!-- 4. COMPANY PROFILE SECTION -->
+    <section id="company-profile-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Company Profile Videos</h2>
+            <p class="category-description">Professional company profile videos that showcase your brand story, values, and services.</p>
+            
+            <h3 class="gallery-title">Behind the Scenes</h3>
+            <div class="mobile-video-grid">
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/13-COMPANY-PROFILE/profile-bts-poster.jpg">
+                        <source src="assets/media/13-COMPANY-PROFILE/company-profile-bts.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Company Profile Shoot</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LIVESTREAM SECTION (with Gear Photo) -->
+    <section id="livestream-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Livestream Services</h2>
+            <p class="category-description">Seamless live broadcasting for events, conferences, and ceremonies across multiple platforms.</p>
+            
+            <!-- Gear Hero Image (like Photography) -->
+            <div class="category-hero-image">
+                <img src="assets/media/08-VIDEO-PRODUCTION/equipment/gear-shot.jpg" 
+                     alt="Professional Livestream Equipment" 
+                     loading="lazy">
+                <div class="image-caption">Our Professional Streaming Setup</div>
+            </div>
+            
+            <h3 class="gallery-title">Live Streaming Setup</h3>
+            <div class="mobile-video-grid">
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/12-LIVESTREAM/setup1-poster.jpg">
+                        <source src="assets/media/12-LIVESTREAM/livestream-setup-1.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Multi-Camera Setup</p>
+                </div>
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/12-LIVESTREAM/setup2-poster.jpg">
+                        <source src="assets/media/12-LIVESTREAM/livestream-setup-2.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Streaming Control Center</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PODCAST SECTION -->
+    <section id="podcast-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Podcast Production</h2>
+            <p class="category-description">Professional podcast recording and production services from our studio.</p>
+            
+            <!-- Featured Episode (Horizontal) -->
+            <h3 class="gallery-title">Featured Episode</h3>
+            <div class="category-hero-video">
+                <video controls class="horizontal-video" poster="assets/media/11-PODCAST/podcast-poster.jpg">
+                    <source src="assets/media/11-PODCAST/final-podcast-episode.mp4" type="video/mp4">
+                </video>
+                <div class="video-caption">Latest Podcast Episode</div>
+            </div>
+            
+            <!-- Studio Setup (Vertical) -->
+            <h3 class="gallery-title">Studio Setup</h3>
+            <div class="mobile-video-grid">
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/11-PODCAST/setup1-poster.jpg">
+                        <source src="assets/media/11-PODCAST/podcast-setup-1.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Podcast Studio Setup</p>
+                </div>
+                <div class="mobile-video-item">
+                    <video controls class="mobile-video" poster="assets/media/11-PODCAST/setup2-poster.jpg">
+                        <source src="assets/media/11-PODCAST/podcast-setup-2.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-label">Recording Setup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PHOTOGRAPHY SECTION -->
     <section id="photography-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Photography</h2>
-            <p class="category-description">Stunning photography that freezes moments in time with artistic vision.</p>
+            <p class="category-description">Professional photography services capturing high-quality images for events, branding, and personal projects.</p>
             
-            <!-- Photography Hero Image -->
             <div class="category-hero-image">
                 <img src="assets/media/07-PHOTOGRAPHY/photography-hero.jpg" alt="Photography Hero" loading="lazy">
             </div>
             
-            <!-- Photography Gallery -->
             <h3 class="gallery-title">Photo Collection</h3>
             <div class="photo-gallery">
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-01-street.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-02-nature.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-03-street.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-04-nature.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-05-graduation.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-06-indoors-dancing.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-07-urban.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-08-candid.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-09-nature.jpg" alt="Photography" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/07-PHOTOGRAPHY/gallery/photo-10-street.jpg" alt="Photography" loading="lazy">
-                </div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-01-street.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-02-nature.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-03-street.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-04-nature.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-05-graduation.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-06-indoors-dancing.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-07-urban.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-08-candid.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-09-nature.jpg" alt="Photography" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/media/07-PHOTOGRAPHY/gallery/photo-10-street.jpg" alt="Photography" loading="lazy"></div>
             </div>
         </div>
     </section>
 
-    <!-- Video Production Section -->
-    <section id="video-production-section" class="category-section">
-        <div class="container">
-            <h2 class="section-title">Video Production</h2>
-            <p class="category-description">Full-service video production from concept to final edit.</p>
-            
-            <!-- Behind the Scenes Gallery -->
-            <h3 class="gallery-title">Behind the Scenes</h3>
-            <div class="photo-gallery">
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-01-holding-camera.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-02-holding-camera-next-to-stage.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-03-communication.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-04-editing-suite.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-05-live-stream-setup.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/media/08-VIDEO-PRODUCTION/behind-the-scenes/bts-06-equipment.jpg" alt="Behind the Scenes" loading="lazy">
-                </div>
-            </div>
-            
-            <!-- Equipment Showcase -->
-            <h3 class="gallery-title">Our Gear</h3>
-            <div class="equipment-showcase">
-                <img src="assets/media/08-VIDEO-PRODUCTION/equipment/gear-shot.jpg" alt="Equipment" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Placeholder sections for new services (add content later) -->
+    <!-- 8. EDITING SECTION (5 Reels) -->
     <section id="editing-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Editing Services</h2>
-            <p class="category-description">Coming soon - Our post-production and color grading portfolio.</p>
+            <p class="category-description">Post-production and color grading services to bring your vision to life. Showcasing our best edited reels.</p>
+            
+            <div class="reels-gallery">
+                <div class="reels-grid">
+                    <div class="reel-item">
+                        <video controls class="reel-video" poster="assets/media/10-EDITING/reel-1-poster.jpg">
+                            <source src="assets/media/10-EDITING/editing-reel-1.mp4" type="video/mp4">
+                        </video>
+                        <p class="reel-label">Corporate Edit</p>
+                    </div>
+                    <div class="reel-item">
+                        <video controls class="reel-video" poster="assets/media/10-EDITING/reel-2-poster.jpg">
+                            <source src="assets/media/10-EDITING/editing-reel-2.mp4" type="video/mp4">
+                        </video>
+                        <p class="reel-label">Wedding Highlight</p>
+                    </div>
+                    <div class="reel-item">
+                        <video controls class="reel-video" poster="assets/media/10-EDITING/reel-3-poster.jpg">
+                            <source src="assets/media/10-EDITING/editing-reel-3.mp4" type="video/mp4">
+                        </video>
+                        <p class="reel-label">Music Video Edit</p>
+                    </div>
+                    <div class="reel-item">
+                        <video controls class="reel-video" poster="assets/media/10-EDITING/reel-4-poster.jpg">
+                            <source src="assets/media/10-EDITING/editing-reel-4.mp4" type="video/mp4">
+                        </video>
+                        <p class="reel-label">Commercial Edit</p>
+                    </div>
+                    <div class="reel-item">
+                        <video controls class="reel-video" poster="assets/media/10-EDITING/reel-5-poster.jpg">
+                            <source src="assets/media/10-EDITING/editing-reel-5.mp4" type="video/mp4">
+                        </video>
+                        <p class="reel-label">Documentary Edit</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="podcast-section" class="category-section">
+    <!-- 9. WEDDINGS SECTION (Moved to End) -->
+    <section id="weddings-section" class="category-section">
         <div class="container">
-            <h2 class="section-title">Podcast Production</h2>
-            <p class="category-description">Coming soon - Professional podcast recording and production.</p>
+            <h2 class="section-title">Weddings & Events</h2>
+            <p class="category-description">Cinematic wedding films capturing your special day with emotion and artistry.</p>
+            
+            <div class="category-hero-video">
+                <video controls preload="metadata" poster="assets/media/03-MAIN-GRID-THUMBNAILS/weddings-thumb.jpg">
+                    <source src="assets/media/05-WEDDINGS/weddings-hero-reel.mp4" type="video/mp4">
+                </video>
+                <div class="video-caption">Wedding Highlight Reel</div>
+            </div>
+            
+            <h3 class="gallery-title">Special Moments</h3>
+            <div class="video-grid">
+                <div class="video-item">
+                    <video controls preload="metadata"><source src="assets/media/05-WEDDINGS/bonus-clips/first-dance.mp4"></video>
+                    <p>First Dance</p>
+                </div>
+                <div class="video-item">
+                    <video controls preload="metadata"><source src="assets/media/05-WEDDINGS/bonus-clips/first-kiss-moment.mp4"></video>
+                    <p>First Kiss</p>
+                </div>
+                <div class="video-item">
+                    <video controls preload="metadata"><source src="assets/media/05-WEDDINGS/bonus-clips/couple-walk-away.mp4"></video>
+                    <p>Couple's Exit</p>
+                </div>
+            </div>
+            
+            <h3 class="gallery-title">Photo Gallery</h3>
+            <div class="photo-gallery">
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-01-bride-lifting-her-veil.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-02-groomsmen-celebrating-couple.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-03-groom-and-groomsmen.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-04-bridesmaids-crazy-photo.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-05-bride-swinging-on-a-tree-stem-as-groom-watches-smiling.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-06-couple-holding-each-other-outdoors-under-a-neon-lit-gazebo.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-07-couple-kiss-as-crowd-cheers.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-08-page-boys-and-flower-girls-crazy-photo.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-09-wedding-cake.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-10-couple-walking-down-house-stairs.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-11-bride-and-bridesmaids-happy-moment-pose.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-12-garden-venue-shot.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-13-bride-pushing-groom-inside-a-bellman-cart.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-14-bride-jokingly-pulls-groom-from-groomsmen.jpg" alt="Wedding"></div>
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-15-couple-silhouette-at-night.jpg" alt="Wedding"></div>
+            </div>
         </div>
     </section>
 
-    <section id="company-profile-section" class="category-section">
+    <!-- WHY CHOOSE US SECTION (WITH PHOTOS) -->
+    <section id="why-us" class="why-choose-us">
         <div class="container">
-            <h2 class="section-title">Company Profile Videos</h2>
-            <p class="category-description">Coming soon - Brand storytelling through professional profile videos.</p>
-        </div>
-    </section>
+            <div class="aperture-bg"></div>
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Mediajos?</h2>
+            </div>
 
-    <section id="livestream-section" class="category-section">
-        <div class="container">
-            <h2 class="section-title">Livestream Services</h2>
-            <p class="category-description">Coming soon - Professional live streaming solutions for events.</p>
+            <div class="why-choose-grid">
+                <div class="why-choose-item">
+                    <div class="why-choose-image">
+                        <img src="assets/media/09-WHY-CHOOSE-US/team-photo.jpg" alt="Mediajos Team" loading="lazy">
+                        <div class="image-overlay"><div class="aperture-icon-small"></div></div>
+                    </div>
+                    <div class="why-choose-content">
+                        <h3>Experienced Team</h3>
+                        <p>Over 8 years of professional videography and photography experience serving clients across East Africa.</p>
+                    </div>
+                </div>
+                <div class="why-choose-item">
+                    <div class="why-choose-image">
+                        <img src="assets/media/09-WHY-CHOOSE-US/bts-action-shot.jpg" alt="Behind the Scenes" loading="lazy">
+                        <div class="image-overlay"><div class="film-icon-small"></div></div>
+                    </div>
+                    <div class="why-choose-content">
+                        <h3>Creative Excellence</h3>
+                        <p>Innovative storytelling and artistic vision ensuring your content stands out and makes a lasting impact.</p>
+                    </div>
+                </div>
+                <div class="why-choose-item">
+                    <div class="why-choose-image">
+                        <img src="assets/media/09-WHY-CHOOSE-US/equipment-studio-shot.jpg" alt="Professional Equipment" loading="lazy">
+                        <div class="image-overlay"><div class="lens-icon-small"></div></div>
+                    </div>
+                    <div class="why-choose-content">
+                        <h3>Advanced Equipment</h3>
+                        <p>State-of-the-art cameras, drones, and editing technology for the highest quality production.</p>
+                    </div>
+                </div>
+                <div class="why-choose-item">
+                    <div class="why-choose-image">
+                        <img src="assets/media/09-WHY-CHOOSE-US/happy-client-moment.jpg" alt="Happy Client" loading="lazy">
+                        <div class="image-overlay"><div class="clapper-icon-small"></div></div>
+                    </div>
+                    <div class="why-choose-content">
+                        <h3>Client Satisfaction</h3>
+                        <p>Dedicated to exceeding expectations through personalized service and attention to detail.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEAM VIBES SECTION (Fun Dancing Video) -->
+            <div class="team-vibes">
+                <div class="vibes-showcase">
+                    <div class="vibes-video-wrapper">
+                        <video controls class="vibes-video" poster="assets/media/14-TEAM-VIBES/dancing-poster.jpg" loop>
+                            <source src="assets/media/14-TEAM-VIBES/team-dancing.mp4" type="video/mp4">
+                        </video>
+                        <div class="vibes-badge">
+                            <span class="vibes-emoji">🎉</span>
+                            <span>Good Vibes Only</span>
+                        </div>
+                    </div>
+                    <p class="vibes-quote">"A team that plays together, stays creative together!"</p>
+                </div>
+            </div>
+
+            <!-- QUOTE -->
+            <div class="quote-container shutter-reveal">
+                <div class="quote-mark">"</div>
+                <p class="quote-text">Your Image, Our Focus</p>
+                <p class="quote-author">— Mediajos Productions</p>
+            </div>
+
+            <!-- TRUSTED BY SECTION -->
+            <div class="trusted-by">
+                <h3 class="section-subtitle">Trusted by Industry Leaders</h3>
+                <div class="name-tags-container">
+                    <div class="name-tags-track">
+                        <span class="name-tag">NTV</span><span class="name-tag">East Africa Property Investment</span>
+                        <span class="name-tag">Girls Amplify</span><span class="name-tag">IPF</span>
+                        <span class="name-tag">DARAJA PLUS</span><span class="name-tag">ALT EXPO</span>
+                        <span class="name-tag">ILO</span><span class="name-tag">ATLAS</span>
+                        <span class="name-tag">Brooke</span><span class="name-tag">Eagles Rescue</span>
+                        <span class="name-tag">Csquared</span><span class="name-tag">40 under 40</span>
+                        <span class="name-tag">SUNOIDA</span>
+                    </div>
+                    <div class="name-tags-track" aria-hidden="true">
+                        <span class="name-tag">NTV</span><span class="name-tag">East Africa Property Investment</span>
+                        <span class="name-tag">Girls Amplify</span><span class="name-tag">IPF</span>
+                        <span class="name-tag">DARAJA PLUS</span><span class="name-tag">ALT EXPO</span>
+                        <span class="name-tag">ILO</span><span class="name-tag">ATLAS</span>
+                        <span class="name-tag">Brooke</span><span class="name-tag">Eagles Rescue</span>
+                        <span class="name-tag">Csquared</span><span class="name-tag">40 under 40</span>
+                        <span class="name-tag">SUNOIDA</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <!-- Film Strip Border Top -->
         <div class="film-strip-footer"></div>
-
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/media/01-LOGOS/First-Design/first-design-page1-full.png" 
-                         alt="Mediajos Productions" 
-                         class="logo-footer">
+                    <img src="assets/media/01-LOGOS/First-Design/first-design-page1-full.png" alt="Mediajos Productions" class="logo-footer">
                     <p>Premium Video & Photography</p>
-                    <p class="footer-tagline">Framing Stories, Capturing Souls</p>
+                    <p class="footer-tagline">Your Image, Our Focus</p>
                 </div>
-
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#corporate-section">Work</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <div class="contact-item">
-                        <span class="contact-icon">📞</span>
-                        <a href="tel:+254715024685" class="contact-link">+254 715 024 685</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">✉️</span>
-                        <a href="mailto:mediajosproduction@gmail.com" class="contact-link">mediajosproduction@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span class="contact-text">Nairobi, Kenya<br>East Africa</span>
-                    </div>
+                    <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+254715024685" class="contact-link">+254 715 024 685</a></div>
+                    <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+254722552750" class="contact-link">+254 722 552 750</a></div>
+                    <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:mediajosproduction@gmail.com" class="contact-link">mediajosproduction@gmail.com</a></div>
+                    <div class="contact-item"><span class="contact-icon">📍</span><span class="contact-text">Nairobi, Kenya<br>East Africa</span></div>
                 </div>
-
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/mediajosproductionslimited?igsh=emRibHd4YWRueGwx" target="_blank" class="social-icon instagram" title="Instagram">
-                            <span class="social-inner">IG</span>
-                        </a>
-                        <a href="https://www.facebook.com/share/17GcXub3tP/" target="_blank" class="social-icon facebook" title="Facebook">
-                            <span class="social-inner">FB</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@mediajosproductionsltd?_r=1&_t=ZS-94bQv5vZ6rC" target="_blank" class="social-icon tiktok" title="TikTok">
-                            <span class="social-inner">TT</span>
-                        </a>
-                        <a href="https://youtube.com/@mediajosproductions317?si=7VMXYho0TJnDgker" target="_blank" class="social-icon youtube" title="YouTube">
-                            <span class="social-inner">YT</span>
-                        </a>
+                        <a href="https://www.instagram.com/mediajosproductionslimited?igsh=emRibHd4YWRueGwx" target="_blank" class="social-icon instagram" title="Instagram"><span class="social-inner">IG</span></a>
+                        <a href="https://www.facebook.com/share/17GcXub3tP/" target="_blank" class="social-icon facebook" title="Facebook"><span class="social-inner">FB</span></a>
+                        <a href="https://www.tiktok.com/@mediajosproductionsltd?_r=1&_t=ZS-94bQv5vZ6rC" target="_blank" class="social-icon tiktok" title="TikTok"><span class="social-inner">TT</span></a>
+                        <a href="https://youtube.com/@mediajosproductions317?si=7VMXYho0TJnDgker" target="_blank" class="social-icon youtube" title="YouTube"><span class="social-inner">YT</span></a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 Mediajos Productions. All rights reserved. | Nairobi, East Africa</p>
+                <p>&copy; 2026 Mediajos Productions. All rights reserved. | Nairobi, Kenya | www.mediajosproduction.com</p>
             </div>
         </div>
-
-        <!-- Film Strip Border Bottom -->
         <div class="film-strip-footer bottom"></div>
     </footer>
 
-    <!-- Camera Shutter Animation Overlay (for page transitions) -->
+    <!-- SHUTTER OVERLAY -->
     <div class="shutter-overlay">
-        <div class="shutter-left"></div>
-        <div class="shutter-right"></div>
-        <div class="shutter-top"></div>
-        <div class="shutter-bottom"></div>
+        <div class="shutter-left"></div><div class="shutter-right"></div>
+        <div class="shutter-top"></div><div class="shutter-bottom"></div>
         <div class="aperture-overlay"></div>
     </div>
 
-    <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
