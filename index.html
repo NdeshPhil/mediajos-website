@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mediajos Productions - Your Image, Our Focus</title>
+    <title>Mediajos Productions - Your Image Our Focus</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -68,7 +68,8 @@
 
         <div class="hero-content container">
             <div class="hero-text">
-                <h1 class="hero-title">Your Image,<br>Our Focus</h1>
+                <!-- REMOVED COMMA -->
+                <h1 class="hero-title">Your Image<br>Our Focus</h1>
                 <p class="hero-subtitle">Premium Video & Photography Production in Nairobi, Kenya</p>
                 <a href="#services" class="btn btn-primary shutter-click">Explore Services</a>
             </div>
@@ -89,24 +90,22 @@
                     
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="stat-number">8+</span>
+                            <span class="stat-number" data-target="8">0</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">100+</span>
+                            <span class="stat-number" data-target="100">0</span>
                             <span class="stat-label">Happy Clients</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">500+</span>
+                            <span class="stat-number" data-target="500">0</span>
                             <span class="stat-label">Projects</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
                     <img src="assets/media/09-WHY-CHOOSE-US/team-photo.jpg" alt="Media Jos Team" loading="lazy">
-                    <div class="about-image-overlay">
-                        <span class="play-button">▶</span>
-                    </div>
+                    <!-- REMOVED PLAY BUTTON OVERLAY -->
                 </div>
             </div>
         </div>
@@ -244,7 +243,7 @@
     </section>
 
     <!-- ======================================== -->
-    <!-- PORTFOLIO SECTIONS (New Order)          -->
+    <!-- PORTFOLIO SECTIONS                      -->
     <!-- ======================================== -->
 
     <!-- 1. CORPORATE SECTION -->
@@ -278,7 +277,7 @@
         </div>
     </section>
 
-    <!-- 2. DOCUMENTARIES SECTION (UPDATED PHOTOS) -->
+    <!-- 2. DOCUMENTARIES SECTION -->
     <section id="documentaries-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Documentaries</h2>
@@ -363,13 +362,13 @@
         </div>
     </section>
 
-    <!-- 5. LIVESTREAM SECTION (with Gear Photo) -->
+    <!-- 5. LIVESTREAM SECTION -->
     <section id="livestream-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Livestream Services</h2>
             <p class="category-description">Seamless live broadcasting for events, conferences, and ceremonies across multiple platforms.</p>
             
-            <!-- Gear Hero Image (like Photography) -->
+            <!-- Gear Hero Image -->
             <div class="category-hero-image">
                 <img src="assets/media/08-VIDEO-PRODUCTION/equipment/gear-shot.jpg" 
                      alt="Professional Livestream Equipment" 
@@ -459,7 +458,8 @@
     <section id="editing-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Editing Services</h2>
-            <p class="category-description">Post-production and color grading services to bring your vision to life. Showcasing our best edited reels.</p>
+            <!-- UPDATED DESCRIPTION -->
+            <p class="category-description">Showcasing some of our edited reels.</p>
             
             <div class="reels-gallery">
                 <div class="reels-grid">
@@ -473,19 +473,22 @@
                         <video controls class="reel-video" poster="assets/media/10-EDITING/reel-2-poster.jpg">
                             <source src="assets/media/10-EDITING/editing-reel-2.mp4" type="video/mp4">
                         </video>
-                        <p class="reel-label">Wedding Highlight</p>
+                        <!-- UPDATED LABEL -->
+                        <p class="reel-label">Event Edit</p>
                     </div>
                     <div class="reel-item">
                         <video controls class="reel-video" poster="assets/media/10-EDITING/reel-3-poster.jpg">
                             <source src="assets/media/10-EDITING/editing-reel-3.mp4" type="video/mp4">
                         </video>
-                        <p class="reel-label">Music Video Edit</p>
+                        <!-- UPDATED LABEL -->
+                        <p class="reel-label">Production Edit</p>
                     </div>
                     <div class="reel-item">
                         <video controls class="reel-video" poster="assets/media/10-EDITING/reel-4-poster.jpg">
                             <source src="assets/media/10-EDITING/editing-reel-4.mp4" type="video/mp4">
                         </video>
-                        <p class="reel-label">Commercial Edit</p>
+                        <!-- UPDATED LABEL -->
+                        <p class="reel-label">Interview Edit</p>
                     </div>
                     <div class="reel-item">
                         <video controls class="reel-video" poster="assets/media/10-EDITING/reel-5-poster.jpg">
@@ -498,7 +501,7 @@
         </div>
     </section>
 
-    <!-- 9. WEDDINGS SECTION (Moved to End) -->
+    <!-- 9. WEDDINGS SECTION -->
     <section id="weddings-section" class="category-section">
         <div class="container">
             <h2 class="section-title">Weddings & Events</h2>
@@ -534,7 +537,8 @@
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-03-groom-and-groomsmen.jpg" alt="Wedding"></div>
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-04-bridesmaids-crazy-photo.jpg" alt="Wedding"></div>
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-05-bride-swinging-on-a-tree-stem-as-groom-watches-smiling.jpg" alt="Wedding"></div>
-                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-06-couple-holding-each-other-outdoors-under-a-neon-lit-gazebo.jpg" alt="Wedding"></div>
+                <!-- FIXED FILENAME - removed space and special characters -->
+                <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-06-couple-holding-each-other-outdoors-under-a-neon-lit-gazebo.jpg" alt="Wedding" loading="lazy"></div>
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-07-couple-kiss-as-crowd-cheers.jpg" alt="Wedding"></div>
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-08-page-boys-and-flower-girls-crazy-photo.jpg" alt="Wedding"></div>
                 <div class="gallery-item"><img src="assets/media/05-WEDDINGS/photos/wedding-09-wedding-cake.jpg" alt="Wedding"></div>
@@ -548,7 +552,7 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE US SECTION (WITH PHOTOS) -->
+    <!-- WHY CHOOSE US SECTION -->
     <section id="why-us" class="why-choose-us">
         <div class="container">
             <div class="aperture-bg"></div>
@@ -599,7 +603,7 @@
                 </div>
             </div>
 
-            <!-- TEAM VIBES SECTION (Fun Dancing Video) -->
+            <!-- TEAM VIBES SECTION (Updated Quote) -->
             <div class="team-vibes">
                 <div class="vibes-showcase">
                     <div class="vibes-video-wrapper">
@@ -608,17 +612,19 @@
                         </video>
                         <div class="vibes-badge">
                             <span class="vibes-emoji">🎉</span>
-                            <span>Good Vibes Only</span>
+                            <span>Team Spirit</span>
                         </div>
                     </div>
-                    <p class="vibes-quote">"A team that plays together, stays creative together!"</p>
+                    <!-- UPDATED QUOTE - More Professional -->
+                    <p class="vibes-quote">"Your successful event is our joy and focus."</p>
                 </div>
             </div>
 
             <!-- QUOTE -->
             <div class="quote-container shutter-reveal">
                 <div class="quote-mark">"</div>
-                <p class="quote-text">Your Image, Our Focus</p>
+                <!-- UPDATED to match hero (no comma) -->
+                <p class="quote-text">Your Image Our Focus</p>
                 <p class="quote-author">— Mediajos Productions</p>
             </div>
 
@@ -657,7 +663,8 @@
                 <div class="footer-logo">
                     <img src="assets/media/01-LOGOS/First-Design/first-design-page1-full.png" alt="Mediajos Productions" class="logo-footer">
                     <p>Premium Video & Photography</p>
-                    <p class="footer-tagline">Your Image, Our Focus</p>
+                    <!-- UPDATED to match hero (no comma) -->
+                    <p class="footer-tagline">Your Image Our Focus</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
