@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initLoadingAnimation();
     initVideoOptimization();
-    initCounterAnimation(); // NEW - Stats counter
+    initCounterAnimation();
+    initPartnersAnimation(); // NEW - Partners scroll animation
+    initContactCards(); // NEW - Contact cards interaction
     
     // Log success
     console.log('Mediajos Productions: All systems initialized 🎬');
@@ -228,6 +230,35 @@ function initScrollAnimations() {
             });
         });
         
+        // Animate partners section
+        gsap.from('.partners-section', {
+            scrollTrigger: {
+                trigger: '.partners-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+        
+        // Animate contact section
+        gsap.utils.toArray('.contact-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: '.contact-section',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: 'back.out(1.2)'
+            });
+        });
+        
         // Animate quote
         gsap.from('.quote-container', {
             scrollTrigger: {
@@ -262,7 +293,7 @@ function initFallbackAnimations() {
         });
     }, { threshold: 0.2 });
     
-    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container').forEach(el => {
+    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .contact-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observer.observe(el);
@@ -413,7 +444,7 @@ function createLightbox(src, alt) {
 // 9. MOBILE VIDEOS OPTIMIZATION
 // ========================================
 function initMobileVideos() {
-    const mobileVideos = document.querySelectorAll('.mobile-video, .reel-video, .vibes-video');
+    const mobileVideos = document.querySelectorAll('.mobile-video, .reel-video, .vibes-video, .category-hero-video video');
     
     mobileVideos.forEach(video => {
         video.setAttribute('preload', 'metadata');
@@ -464,17 +495,21 @@ function initNameTags() {
 // 11. SOCIAL ICONS HOVER
 // ========================================
 function initSocialIcons() {
-    const socialIcons = document.querySelectorAll('.social-icon');
+    const socialIcons = document.querySelectorAll('.social-icon, .social-showcase-item');
     
     socialIcons.forEach(icon => {
         icon.addEventListener('mouseenter', () => {
-            icon.style.boxShadow = '0 0 30px currentColor';
-            icon.style.transform = 'scale(1.1)';
+            const img = icon.querySelector('img');
+            if (img) {
+                img.style.transform = 'scale(1.1)';
+            }
         });
         
         icon.addEventListener('mouseleave', () => {
-            icon.style.boxShadow = 'none';
-            icon.style.transform = 'scale(1)';
+            const img = icon.querySelector('img');
+            if (img) {
+                img.style.transform = 'scale(1)';
+            }
         });
     });
 }
@@ -483,18 +518,19 @@ function initSocialIcons() {
 // 12. CONTACT ITEMS HOVER
 // ========================================
 function initContactHover() {
-    const contactItems = document.querySelectorAll('.contact-item');
+    const contactItems = document.querySelectorAll('.contact-item, .contact-card');
     
     contactItems.forEach(item => {
-        const icon = item.querySelector('.contact-icon');
-        
         item.addEventListener('mouseenter', () => {
+            const icon = item.querySelector('.contact-icon, .contact-icon-large');
             if (icon) {
                 icon.style.transform = 'scale(1.2) rotate(5deg)';
+                icon.style.transition = 'transform 0.3s ease';
             }
         });
         
         item.addEventListener('mouseleave', () => {
+            const icon = item.querySelector('.contact-icon, .contact-icon-large');
             if (icon) {
                 icon.style.transform = 'scale(1) rotate(0)';
             }
@@ -511,7 +547,27 @@ function initContactHover() {
 }
 
 // ========================================
-// 13. SMOOTH SCROLL
+// 13. CONTACT CARDS INTERACTION (NEW)
+// ========================================
+function initContactCards() {
+    const contactCards = document.querySelectorAll('.contact-card');
+    
+    contactCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on a link
+            if (e.target.tagName === 'A') return;
+            
+            // Find the first link in the card and simulate click
+            const link = this.querySelector('a');
+            if (link) {
+                link.click();
+            }
+        });
+    });
+}
+
+// ========================================
+// 14. SMOOTH SCROLL
 // ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -529,7 +585,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// 14. MOBILE MENU
+// 15. MOBILE MENU
 // ========================================
 function initMobileMenu() {
     if (window.innerWidth > 768) return;
@@ -586,7 +642,7 @@ function initMobileMenu() {
 }
 
 // ========================================
-// 15. LOADING ANIMATION
+// 16. LOADING ANIMATION
 // ========================================
 function initLoadingAnimation() {
     if (sessionStorage.getItem('mediajos-visited')) return;
@@ -628,10 +684,10 @@ function initLoadingAnimation() {
 }
 
 // ========================================
-// 16. VIDEO OPTIMIZATION
+// 17. VIDEO OPTIMIZATION
 // ========================================
 function initVideoOptimization() {
-    const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item');
+    const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item, .vibes-video-wrapper');
     
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -652,7 +708,7 @@ function initVideoOptimization() {
 }
 
 // ========================================
-// 17. COUNTER ANIMATION FOR STATS (NEW)
+// 18. COUNTER ANIMATION FOR STATS
 // ========================================
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
@@ -665,7 +721,7 @@ function initCounterAnimation() {
                 const counter = entry.target;
                 const target = parseInt(counter.getAttribute('data-target'));
                 let current = 0;
-                const increment = target / 50; // Divide into 50 steps
+                const increment = target / 50;
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
@@ -674,7 +730,7 @@ function initCounterAnimation() {
                     } else {
                         counter.textContent = Math.floor(current) + (counter.getAttribute('data-target') === '8' ? '+' : '');
                     }
-                }, 30); // 30ms intervals = ~1.5 seconds total
+                }, 30);
                 
                 observer.unobserve(counter);
             }
@@ -682,14 +738,49 @@ function initCounterAnimation() {
     }, { threshold: 0.5 });
     
     counters.forEach(counter => {
-        // Set initial value
         counter.textContent = '0';
         observer.observe(counter);
     });
 }
 
 // ========================================
-// 18. TOAST NOTIFICATION
+// 19. PARTNERS ANIMATION CONTROL (NEW)
+// ========================================
+function initPartnersAnimation() {
+    const partnerTracks = document.querySelectorAll('.partners-track');
+    
+    partnerTracks.forEach(track => {
+        // Pause animation on hover
+        track.addEventListener('mouseenter', () => {
+            track.style.animationPlayState = 'paused';
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            track.style.animationPlayState = 'running';
+        });
+    });
+    
+    // Add resize handler to adjust animation speed for mobile
+    function adjustAnimationSpeed() {
+        const screenWidth = window.innerWidth;
+        const tracks = document.querySelectorAll('.partners-track');
+        
+        tracks.forEach(track => {
+            if (screenWidth <= 768) {
+                track.style.animationDuration = '30s'; // Faster on mobile
+            } else {
+                track.style.animationDuration = '40s'; // Normal on desktop
+            }
+        });
+    }
+    
+    // Call on load and resize
+    adjustAnimationSpeed();
+    window.addEventListener('resize', adjustAnimationSpeed);
+}
+
+// ========================================
+// 20. TOAST NOTIFICATION
 // ========================================
 function showToast(message) {
     const toast = document.createElement('div');
@@ -701,7 +792,7 @@ function showToast(message) {
 }
 
 // ========================================
-// 19. KEYBOARD NAVIGATION
+// 21. KEYBOARD NAVIGATION
 // ========================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -716,7 +807,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// 20. RESIZE HANDLER
+// 22. RESIZE HANDLER
 // ========================================
 window.addEventListener('resize', () => {
     const navMenu = document.querySelector('.nav-menu');
@@ -732,7 +823,7 @@ window.addEventListener('resize', () => {
 });
 
 // ========================================
-// 21. PAGE LOAD COMPLETE
+// 23. PAGE LOAD COMPLETE
 // ========================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
@@ -740,7 +831,7 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// 22. ERROR HANDLING
+// 24. ERROR HANDLING
 // ========================================
 window.addEventListener('error', (e) => {
     console.log('Mediajos caught an error:', e.message);
@@ -748,14 +839,16 @@ window.addEventListener('error', (e) => {
 });
 
 // ========================================
-// 23. DEBUG INFO
+// 25. DEBUG INFO
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
-console.log('About section: ✅ (Stats counter added)');
+console.log('About section: ✅');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
-console.log('Editing reels: ✅ (Labels updated)');
-console.log('Team vibes: ✅ (Quote updated)');
-console.log('Name tags: ✅');
+console.log('Editing reels: ✅');
+console.log('Partners animation: ✅ (Like CSA.org)');
+console.log('Social media: ✅');
+console.log('Contact section: ✅');
+console.log('Team vibes: ✅');
 console.log('Ready for action!');
