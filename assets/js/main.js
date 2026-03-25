@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoadingAnimation();
     initVideoOptimization();
     initCounterAnimation();
-    initPartnersAnimation(); // NEW - Partners scroll animation
-    initContactCards(); // NEW - Contact cards interaction
+    initPartnersAnimation();
+    initContactCards();
+    initRatingsAnimation(); // NEW - Ratings section animations
     
     // Log success
     console.log('Mediajos Productions: All systems initialized 🎬');
@@ -243,7 +244,20 @@ function initScrollAnimations() {
             ease: 'power3.out'
         });
         
-        // Animate contact section
+        // Animate ratings section
+        gsap.from('.ratings-section', {
+            scrollTrigger: {
+                trigger: '.ratings-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+        
+        // Animate contact cards
         gsap.utils.toArray('.contact-card').forEach((card, index) => {
             gsap.from(card, {
                 scrollTrigger: {
@@ -293,7 +307,7 @@ function initFallbackAnimations() {
         });
     }, { threshold: 0.2 });
     
-    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .contact-card').forEach(el => {
+    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .ratings-section, .contact-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observer.observe(el);
@@ -547,7 +561,7 @@ function initContactHover() {
 }
 
 // ========================================
-// 13. CONTACT CARDS INTERACTION (NEW)
+// 13. CONTACT CARDS INTERACTION
 // ========================================
 function initContactCards() {
     const contactCards = document.querySelectorAll('.contact-card');
@@ -567,7 +581,68 @@ function initContactCards() {
 }
 
 // ========================================
-// 14. SMOOTH SCROLL
+// 14. RATINGS SECTION ANIMATIONS (NEW)
+// ========================================
+function initRatingsAnimation() {
+    const ratingBadge = document.querySelector('.ratings-badge');
+    const testimonialCards = document.querySelectorAll('.testimonial-quick');
+    
+    if (!ratingBadge) return;
+    
+    // Animate rating badge on scroll
+    if (typeof gsap !== 'undefined') {
+        gsap.from('.ratings-badge', {
+            scrollTrigger: {
+                trigger: '.ratings-section',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'back.out(1.2)'
+        });
+        
+        // Animate each testimonial card with stagger
+        gsap.from(testimonialCards, {
+            scrollTrigger: {
+                trigger: '.ratings-section',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'power3.out'
+        });
+    } else {
+        // Fallback for no GSAP
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transition = 'all 0.6s ease';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        ratingBadge.style.opacity = '0';
+        ratingBadge.style.transform = 'scale(0.8)';
+        observer.observe(ratingBadge);
+        
+        testimonialCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            observer.observe(card);
+        });
+    }
+}
+
+// ========================================
+// 15. SMOOTH SCROLL
 // ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -585,7 +660,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// 15. MOBILE MENU
+// 16. MOBILE MENU
 // ========================================
 function initMobileMenu() {
     if (window.innerWidth > 768) return;
@@ -642,7 +717,7 @@ function initMobileMenu() {
 }
 
 // ========================================
-// 16. LOADING ANIMATION
+// 17. LOADING ANIMATION
 // ========================================
 function initLoadingAnimation() {
     if (sessionStorage.getItem('mediajos-visited')) return;
@@ -684,7 +759,7 @@ function initLoadingAnimation() {
 }
 
 // ========================================
-// 17. VIDEO OPTIMIZATION
+// 18. VIDEO OPTIMIZATION
 // ========================================
 function initVideoOptimization() {
     const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item, .vibes-video-wrapper');
@@ -708,7 +783,7 @@ function initVideoOptimization() {
 }
 
 // ========================================
-// 18. COUNTER ANIMATION FOR STATS
+// 19. COUNTER ANIMATION FOR STATS
 // ========================================
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
@@ -744,13 +819,12 @@ function initCounterAnimation() {
 }
 
 // ========================================
-// 19. PARTNERS ANIMATION CONTROL (NEW)
+// 20. PARTNERS ANIMATION CONTROL
 // ========================================
 function initPartnersAnimation() {
     const partnerTracks = document.querySelectorAll('.partners-track');
     
     partnerTracks.forEach(track => {
-        // Pause animation on hover
         track.addEventListener('mouseenter', () => {
             track.style.animationPlayState = 'paused';
         });
@@ -767,20 +841,19 @@ function initPartnersAnimation() {
         
         tracks.forEach(track => {
             if (screenWidth <= 768) {
-                track.style.animationDuration = '30s'; // Faster on mobile
+                track.style.animationDuration = '30s';
             } else {
-                track.style.animationDuration = '40s'; // Normal on desktop
+                track.style.animationDuration = '40s';
             }
         });
     }
     
-    // Call on load and resize
     adjustAnimationSpeed();
     window.addEventListener('resize', adjustAnimationSpeed);
 }
 
 // ========================================
-// 20. TOAST NOTIFICATION
+// 21. TOAST NOTIFICATION
 // ========================================
 function showToast(message) {
     const toast = document.createElement('div');
@@ -792,7 +865,7 @@ function showToast(message) {
 }
 
 // ========================================
-// 21. KEYBOARD NAVIGATION
+// 22. KEYBOARD NAVIGATION
 // ========================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -807,7 +880,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// 22. RESIZE HANDLER
+// 23. RESIZE HANDLER
 // ========================================
 window.addEventListener('resize', () => {
     const navMenu = document.querySelector('.nav-menu');
@@ -823,7 +896,7 @@ window.addEventListener('resize', () => {
 });
 
 // ========================================
-// 23. PAGE LOAD COMPLETE
+// 24. PAGE LOAD COMPLETE
 // ========================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
@@ -831,7 +904,7 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// 24. ERROR HANDLING
+// 25. ERROR HANDLING
 // ========================================
 window.addEventListener('error', (e) => {
     console.log('Mediajos caught an error:', e.message);
@@ -839,7 +912,7 @@ window.addEventListener('error', (e) => {
 });
 
 // ========================================
-// 25. DEBUG INFO
+// 26. DEBUG INFO
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
@@ -847,8 +920,8 @@ console.log('About section: ✅');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
 console.log('Editing reels: ✅');
-console.log('Partners animation: ✅ (Like CSA.org)');
-console.log('Social media: ✅');
+console.log('Partners animation: ✅');
+console.log('Ratings section: ✅ (NEW)');
 console.log('Contact section: ✅');
 console.log('Team vibes: ✅');
 console.log('Ready for action!');
