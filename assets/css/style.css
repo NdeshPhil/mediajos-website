@@ -932,7 +932,7 @@ body {
 }
 
 /* ========================================
-   PARTNERS SECTION - Infinite Scroll (Like CSA.org)
+   PARTNERS SECTION - Infinite Scroll
    ======================================== */
 .partners-section {
     padding: 60px 0;
@@ -1045,138 +1045,95 @@ body {
     transform: scale(1.05);
 }
 
-/* Light bg images - ensure they're crisp */
-.partner-logo.light-bg img {
-    filter: none;
-}
-
-/* Dark bg images - already on dark background */
-.partner-logo.dark-bg img {
-    filter: none;
-}
-
 @keyframes scrollPartners {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
 /* ========================================
-   SOCIAL INVITATION SECTION
+   RATINGS & REVIEWS SECTION
    ======================================== */
-.social-invite {
+.ratings-section {
     padding: 80px 0;
     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-    text-align: center;
-    border-top: 2px solid rgba(212, 175, 55, 0.2);
-    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-    position: relative;
-    overflow: hidden;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.social-invite::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%);
-    animation: rotateSlow 60s linear infinite;
-}
-
-.invite-camera-icon {
-    font-size: 64px;
-    margin-bottom: 20px;
-    animation: shutterClick 2s infinite;
-}
-
-@keyframes shutterClick {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-.invite-content h3 {
-    font-size: 36px;
-    color: var(--text-light);
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.invite-tagline {
-    font-size: 24px;
-    color: var(--primary-gold);
+.ratings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-bottom: 50px;
-    font-style: italic;
-    position: relative;
-    display: inline-block;
-}
-
-.invite-tagline::before,
-.invite-tagline::after {
-    content: '"';
-    color: var(--primary-gold);
-    font-size: 36px;
-    opacity: 0.5;
-    margin: 0 10px;
-}
-
-.social-showcase {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    max-width: 900px;
-    margin: 0 auto 40px;
-}
-
-.social-showcase-item {
-    text-decoration: none;
-    padding: 25px 15px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    text-align: center;
+    padding: 30px;
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.social-showcase-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.ratings-summary {
+    flex: 1;
 }
 
-.social-showcase-item.instagram:hover { background: rgba(225, 48, 108, 0.1); border-color: #E4405F; }
-.social-showcase-item.tiktok:hover { background: rgba(0, 0, 0, 0.2); border-color: #000000; }
-.social-showcase-item.facebook:hover { background: rgba(66, 103, 178, 0.1); border-color: #1877F2; }
-.social-showcase-item.youtube:hover { background: rgba(255, 0, 0, 0.1); border-color: #FF0000; }
-
-.social-showcase-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
+.ratings-badge {
+    margin-bottom: 10px;
 }
 
-.social-showcase-item:hover .social-showcase-icon {
-    transform: scale(1.1);
-}
-
-.social-showcase-name {
-    display: block;
+.ratings-score {
+    font-size: 48px;
+    font-weight: 700;
     color: var(--primary-gold);
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 5px;
+    line-height: 1;
 }
 
-.social-showcase-handle {
-    display: block;
-    color: rgba(255,255,255,0.6);
+.ratings-stars {
+    color: var(--primary-gold);
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.ratings-count {
     font-size: 12px;
+    color: rgba(255,255,255,0.6);
 }
 
-.invite-footer {
-    color: rgba(255,255,255,0.5);
+.ratings-summary p {
+    color: rgba(255,255,255,0.7);
     font-size: 14px;
-    letter-spacing: 1px;
+}
+
+.testimonials-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-quick {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--primary-gold);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-quick:hover {
+    background: rgba(212, 175, 55, 0.05);
+    transform: translateY(-5px);
+}
+
+.testimonial-quick p {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.testimonial-author {
+    font-size: 13px;
+    color: var(--primary-gold);
+    font-weight: 500;
 }
 
 /* ========================================
@@ -1570,13 +1527,6 @@ body {
     margin-bottom: 5px;
 }
 
-.contact-note {
-    color: rgba(255,255,255,0.5);
-    font-size: 12px;
-    margin-top: 15px;
-    font-style: italic;
-}
-
 .contact-social-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1965,6 +1915,10 @@ video:error + .video-fallback {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .testimonials-preview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2022,6 +1976,17 @@ video:error + .video-fallback {
         grid-template-columns: 1fr;
     }
     
+    .testimonials-preview {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .ratings-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2049,19 +2014,6 @@ video:error + .video-fallback {
     
     .partner-logo img {
         max-height: 50px;
-    }
-    
-    .social-showcase {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .invite-content h3 {
-        font-size: 24px;
-    }
-    
-    .invite-tagline {
-        font-size: 18px;
     }
     
     .category-section {
