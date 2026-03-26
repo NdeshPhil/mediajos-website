@@ -1137,6 +1137,112 @@ body {
 }
 
 /* ========================================
+   SIMPLE CONTACT FORM SECTION (NEW)
+   ======================================== */
+.contact-form-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    position: relative;
+}
+
+.contact-form-container {
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.simple-form .form-group {
+    margin-bottom: 20px;
+}
+
+.simple-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.simple-form input,
+.simple-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.simple-form input:focus,
+.simple-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    background: rgba(255,255,255,0.15);
+}
+
+.simple-form input::placeholder,
+.simple-form textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.simple-form .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Form Success & Error Messages */
+.form-success {
+    text-align: center;
+    padding: 30px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--primary-gold);
+    border-radius: 12px;
+}
+
+.form-success h4 {
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.form-success p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+}
+
+.form-success .btn-secondary {
+    margin-top: 10px;
+}
+
+.form-error {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid #ff6666;
+    border-radius: 12px;
+}
+
+.form-error h4 {
+    color: #ff8888;
+    margin-bottom: 15px;
+}
+
+/* ========================================
    WHY CHOOSE US SECTION
    ======================================== */
 .why-choose-us {
@@ -1462,7 +1568,7 @@ body {
 }
 
 /* ========================================
-   CONTACT SECTION
+   CONTACT CARDS SECTION
    ======================================== */
 .contact-section {
     padding: 80px 0;
@@ -2048,6 +2154,10 @@ video:error + .video-fallback {
     .reels-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 15px;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
     }
 }
 
