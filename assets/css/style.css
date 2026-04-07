@@ -764,6 +764,14 @@ body {
     background: var(--primary-gold);
 }
 
+.sub-gallery-description {
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: -15px;
+}
+
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -816,6 +824,62 @@ body {
 }
 
 .gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Portrait Gallery */
+.portrait-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.portrait-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.portrait-item:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.portrait-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portrait-item:hover img {
+    transform: scale(1.1);
+}
+
+.portrait-item::after {
+    content: '🔍';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: var(--primary-gold);
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-item:hover::after {
     opacity: 1;
 }
 
@@ -1137,7 +1201,7 @@ body {
 }
 
 /* ========================================
-   SIMPLE CONTACT FORM SECTION (NEW)
+   SIMPLE CONTACT FORM SECTION
    ======================================== */
 .contact-form-section {
     padding: 80px 0;
@@ -2135,6 +2199,11 @@ video:error + .video-fallback {
         gap: 15px;
     }
     
+    .portrait-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    
     .gallery-title {
         font-size: 24px;
     }
@@ -2208,6 +2277,10 @@ video:error + .video-fallback {
     .reel-video {
         max-width: 200px;
         margin: 0 auto;
+    }
+    
+    .portrait-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
 
