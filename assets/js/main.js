@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceCards();
     initServiceLinks();
     initGalleryInteractions();
+    initPortraitGalleryInteractions(); // NEW - Portrait gallery
     initMobileVideos();
     initNameTags();
     initSocialIcons();
@@ -25,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimation();
     initPartnersAnimation();
     initContactCards();
-    initRatingsAnimation(); // NEW - Ratings section animations
+    initRatingsAnimation();
+    initSimpleContactForm();
     
     // Log success
     console.log('Mediajos Productions: All systems initialized 🎬');
@@ -257,6 +259,19 @@ function initScrollAnimations() {
             ease: 'power3.out'
         });
         
+        // Animate contact form section
+        gsap.from('.contact-form-section', {
+            scrollTrigger: {
+                trigger: '.contact-form-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+        
         // Animate contact cards
         gsap.utils.toArray('.contact-card').forEach((card, index) => {
             gsap.from(card, {
@@ -307,7 +322,7 @@ function initFallbackAnimations() {
         });
     }, { threshold: 0.2 });
     
-    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .ratings-section, .contact-card').forEach(el => {
+    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .ratings-section, .contact-form-section, .contact-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observer.observe(el);
@@ -399,7 +414,7 @@ function initServiceLinks() {
 }
 
 // ========================================
-// 8. GALLERY INTERACTIONS
+// 8. GALLERY INTERACTIONS (Landscape)
 // ========================================
 function initGalleryInteractions() {
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -414,6 +429,25 @@ function initGalleryInteractions() {
     });
 }
 
+// ========================================
+// 9. PORTRAIT GALLERY INTERACTIONS (NEW)
+// ========================================
+function initPortraitGalleryInteractions() {
+    const portraitItems = document.querySelectorAll('.portrait-item');
+    
+    portraitItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+                createLightbox(img.src, img.alt);
+            }
+        });
+    });
+}
+
+// ========================================
+// 10. LIGHTBOX CREATOR
+// ========================================
 function createLightbox(src, alt) {
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
@@ -455,7 +489,7 @@ function createLightbox(src, alt) {
 }
 
 // ========================================
-// 9. MOBILE VIDEOS OPTIMIZATION
+// 11. MOBILE VIDEOS OPTIMIZATION
 // ========================================
 function initMobileVideos() {
     const mobileVideos = document.querySelectorAll('.mobile-video, .reel-video, .vibes-video, .category-hero-video video');
@@ -489,7 +523,7 @@ function initMobileVideos() {
 }
 
 // ========================================
-// 10. NAME TAGS ANIMATION
+// 12. NAME TAGS ANIMATION
 // ========================================
 function initNameTags() {
     const nameTracks = document.querySelectorAll('.name-tags-track');
@@ -506,7 +540,7 @@ function initNameTags() {
 }
 
 // ========================================
-// 11. SOCIAL ICONS HOVER
+// 13. SOCIAL ICONS HOVER
 // ========================================
 function initSocialIcons() {
     const socialIcons = document.querySelectorAll('.social-icon, .social-showcase-item');
@@ -529,7 +563,7 @@ function initSocialIcons() {
 }
 
 // ========================================
-// 12. CONTACT ITEMS HOVER
+// 14. CONTACT ITEMS HOVER
 // ========================================
 function initContactHover() {
     const contactItems = document.querySelectorAll('.contact-item, .contact-card');
@@ -561,7 +595,7 @@ function initContactHover() {
 }
 
 // ========================================
-// 13. CONTACT CARDS INTERACTION
+// 15. CONTACT CARDS INTERACTION
 // ========================================
 function initContactCards() {
     const contactCards = document.querySelectorAll('.contact-card');
@@ -581,7 +615,7 @@ function initContactCards() {
 }
 
 // ========================================
-// 14. RATINGS SECTION ANIMATIONS (NEW)
+// 16. RATINGS SECTION ANIMATIONS
 // ========================================
 function initRatingsAnimation() {
     const ratingBadge = document.querySelector('.ratings-badge');
@@ -642,7 +676,61 @@ function initRatingsAnimation() {
 }
 
 // ========================================
-// 15. SMOOTH SCROLL
+// 17. SIMPLE CONTACT FORM HANDLER
+// ========================================
+function initSimpleContactForm() {
+    const form = document.getElementById('simpleContactForm');
+    const container = document.querySelector('.contact-form-container');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(form);
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                container.innerHTML = `
+                    <div class="form-success">
+                        <h4>🎉 Message Sent!</h4>
+                        <p>Thank you for reaching out. We've received your message and will get back to you within 24 hours.</p>
+                        <a href="#home" class="btn btn-secondary">Return to Home</a>
+                    </div>
+                `;
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            console.error('Form error:', error);
+            container.innerHTML = `
+                <div class="form-error">
+                    <h4>❌ Something went wrong</h4>
+                    <p>We couldn't send your message. Please try again or email us directly at:</p>
+                    <p><strong>mediajosproduction@gmail.com</strong></p>
+                    <button onclick="location.reload()" class="btn btn-secondary mt-3">Try Again</button>
+                </div>
+            `;
+        }
+    });
+}
+
+// ========================================
+// 18. SMOOTH SCROLL
 // ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -660,7 +748,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// 16. MOBILE MENU
+// 19. MOBILE MENU
 // ========================================
 function initMobileMenu() {
     if (window.innerWidth > 768) return;
@@ -717,7 +805,7 @@ function initMobileMenu() {
 }
 
 // ========================================
-// 17. LOADING ANIMATION
+// 20. LOADING ANIMATION
 // ========================================
 function initLoadingAnimation() {
     if (sessionStorage.getItem('mediajos-visited')) return;
@@ -759,7 +847,7 @@ function initLoadingAnimation() {
 }
 
 // ========================================
-// 18. VIDEO OPTIMIZATION
+// 21. VIDEO OPTIMIZATION
 // ========================================
 function initVideoOptimization() {
     const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item, .vibes-video-wrapper');
@@ -783,7 +871,7 @@ function initVideoOptimization() {
 }
 
 // ========================================
-// 19. COUNTER ANIMATION FOR STATS
+// 22. COUNTER ANIMATION FOR STATS
 // ========================================
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
@@ -819,7 +907,7 @@ function initCounterAnimation() {
 }
 
 // ========================================
-// 20. PARTNERS ANIMATION CONTROL
+// 23. PARTNERS ANIMATION CONTROL
 // ========================================
 function initPartnersAnimation() {
     const partnerTracks = document.querySelectorAll('.partners-track');
@@ -853,7 +941,7 @@ function initPartnersAnimation() {
 }
 
 // ========================================
-// 21. TOAST NOTIFICATION
+// 24. TOAST NOTIFICATION
 // ========================================
 function showToast(message) {
     const toast = document.createElement('div');
@@ -865,7 +953,7 @@ function showToast(message) {
 }
 
 // ========================================
-// 22. KEYBOARD NAVIGATION
+// 25. KEYBOARD NAVIGATION
 // ========================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -880,7 +968,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// 23. RESIZE HANDLER
+// 26. RESIZE HANDLER
 // ========================================
 window.addEventListener('resize', () => {
     const navMenu = document.querySelector('.nav-menu');
@@ -896,7 +984,7 @@ window.addEventListener('resize', () => {
 });
 
 // ========================================
-// 24. PAGE LOAD COMPLETE
+// 27. PAGE LOAD COMPLETE
 // ========================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
@@ -904,7 +992,7 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// 25. ERROR HANDLING
+// 28. ERROR HANDLING
 // ========================================
 window.addEventListener('error', (e) => {
     console.log('Mediajos caught an error:', e.message);
@@ -912,16 +1000,18 @@ window.addEventListener('error', (e) => {
 });
 
 // ========================================
-// 26. DEBUG INFO
+// 29. DEBUG INFO
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
 console.log('About section: ✅');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
+console.log('Portrait gallery: ✅ (NEW)');
 console.log('Editing reels: ✅');
 console.log('Partners animation: ✅');
-console.log('Ratings section: ✅ (NEW)');
+console.log('Ratings section: ✅');
+console.log('Simple contact form: ✅');
 console.log('Contact section: ✅');
 console.log('Team vibes: ✅');
 console.log('Ready for action!');
