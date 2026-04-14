@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceCards();
     initServiceLinks();
     initGalleryInteractions();
-    initPortraitGalleryInteractions(); // NEW - Portrait gallery
+    initPortraitGalleryInteractions();
     initMobileVideos();
     initNameTags();
     initSocialIcons();
@@ -430,7 +430,7 @@ function initGalleryInteractions() {
 }
 
 // ========================================
-// 9. PORTRAIT GALLERY INTERACTIONS (NEW)
+// 9. PORTRAIT GALLERY INTERACTIONS
 // ========================================
 function initPortraitGalleryInteractions() {
     const portraitItems = document.querySelectorAll('.portrait-item');
@@ -1007,7 +1007,7 @@ console.log('Hero video: ✅');
 console.log('About section: ✅');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
-console.log('Portrait gallery: ✅ (NEW)');
+console.log('Portrait gallery: ✅');
 console.log('Editing reels: ✅');
 console.log('Partners animation: ✅');
 console.log('Ratings section: ✅');
