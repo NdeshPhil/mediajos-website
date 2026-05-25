@@ -1851,6 +1851,123 @@ body {
 }
 
 /* ========================================
+   CORPORATE SOCIAL SECTION (NEW)
+   ======================================== */
+.corporate-social-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.corporate-social-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.corporate-badge {
+    display: inline-block;
+    background: var(--primary-gold);
+    color: var(--primary-black);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 15px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.corporate-social-header h3 {
+    font-size: 28px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.corporate-social-header p {
+    color: rgba(255,255,255,0.6);
+}
+
+.corporate-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.corporate-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.corporate-social-btn img {
+    width: 28px;
+    height: 28px;
+}
+
+.corporate-social-btn span {
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-arrow {
+    color: var(--primary-gold);
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.corporate-social-btn:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.corporate-social-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   FOOTER SOCIAL GROUPS (UPDATED)
+   ======================================== */
+.social-icons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-group {
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    padding-top: 15px;
+}
+
+.social-group:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.group-label {
+    font-size: 12px;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.social-group .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ========================================
    CONTACT CARDS SECTION
    ======================================== */
 .contact-section {
@@ -2038,13 +2155,6 @@ body {
 
 .footer-contact .contact-text {
     line-height: 1.4;
-}
-
-.footer-social .social-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
 }
 
 .social-icon {
@@ -2386,10 +2496,6 @@ video:error + .video-fallback {
         justify-content: center;
     }
     
-    .footer-social .social-icons {
-        justify-content: center;
-    }
-    
     .partners-row::before,
     .partners-row::after {
         width: 50px;
@@ -2463,6 +2569,22 @@ video:error + .video-fallback {
     
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .corporate-social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .corporate-social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .social-icons-group {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
 
