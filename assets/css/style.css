@@ -869,6 +869,24 @@ body {
     display: block;
 }
 
+/* SQUARE VIDEO FIX (for 1080x1080 reels) */
+.category-hero-video.square-video {
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 1/1;
+    background: #000;
+    padding: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+}
+
+.category-hero-video.square-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
 .category-hero-image {
     margin: 40px 0;
     width: 100%;
@@ -1331,6 +1349,41 @@ body {
     color: rgba(255,255,255,0.5);
     font-size: 12px;
     margin-left: 10px;
+}
+
+/* ========================================
+   APPRECIATION CARD SECTION (NEW - Atlas Copco)
+   ======================================== */
+.appreciation-card-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+.appreciation-card-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.appreciation-card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.appreciation-card-image:hover {
+    transform: scale(1.02);
+}
+
+.card-credit {
+    margin-top: 15px;
+    color: var(--primary-gold);
+    font-size: 14px;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
 /* ========================================
@@ -1851,7 +1904,7 @@ body {
 }
 
 /* ========================================
-   CORPORATE SOCIAL SECTION (NEW)
+   CORPORATE SOCIAL SECTION
    ======================================== */
 .corporate-social-section {
     padding: 60px 0;
@@ -1935,7 +1988,7 @@ body {
 }
 
 /* ========================================
-   FOOTER SOCIAL GROUPS (UPDATED)
+   FOOTER SOCIAL GROUPS
    ======================================== */
 .social-icons-group {
     display: flex;
@@ -2585,6 +2638,10 @@ video:error + .video-fallback {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .category-hero-video.square-video {
+        max-width: 100%;
     }
 }
 
