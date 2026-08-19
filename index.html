@@ -254,7 +254,6 @@
             <h2 class="section-title">Corporate Events</h2>
             <p class="category-description">Professional coverage of business events, conferences, product launches, and seminars, capturing key moments to enhance brand visibility.</p>
             
-            <!-- Existing Hero Video -->
             <h3 class="gallery-title">Corporate Event Highlight</h3>
             <div class="category-hero-video">
                 <video controls preload="metadata" poster="assets/media/03-MAIN-GRID-THUMBNAILS/corporate-thumb.jpg">
@@ -263,7 +262,6 @@
                 <div class="video-caption">Corporate Event Highlight Reel</div>
             </div>
             
-            <!-- Atlas Copco Reel -->
             <h3 class="gallery-title">Corporate Shoot & Behind the Scenes</h3>
             <div class="category-hero-video square-video">
                 <video controls preload="metadata" poster="assets/media/04-CORPORATE/atlas-poster.jpg">
@@ -272,7 +270,6 @@
                 <div class="video-caption">Atlas Copco Corporate Shoot</div>
             </div>
             
-            <!-- Photo Gallery -->
             <h3 class="gallery-title">Photo Gallery</h3>
             <div class="photo-gallery">
                 <div class="gallery-item"><img src="assets/media/04-CORPORATE/photos/corporate-01.jpg" alt="Corporate Event" loading="lazy"></div>
@@ -768,7 +765,7 @@
         </div>
     </section>
 
-    <!-- SIMPLE CONTACT FORM SECTION (UPDATED with Contact Details) -->
+    <!-- SIMPLE CONTACT FORM SECTION (BALANCED VERSION) -->
     <section id="contact-form" class="contact-form-section">
         <div class="container">
             <div class="section-header">
@@ -783,11 +780,27 @@
                         <input type="text" id="name" name="name" placeholder="How should we address you?" required>
                     </div>
 
-                    <!-- Contact Details Field -->
+                    <!-- Contact Details - Optional -->
                     <div class="form-group">
-                        <label for="contact">How Can We Reach You? *</label>
-                        <input type="text" id="contact" name="contact" placeholder="Email address or phone number" required>
-                        <p class="field-note">Please provide your email or phone number so we can get back to you directly.</p>
+                        <label for="contact">How Can We Reach You? <span class="optional-tag">(Optional)</span></label>
+                        <input type="text" id="contact" name="contact" placeholder="Email address or phone number">
+                        <p class="field-note">💡 Provide your contact details if you'd like a reply. For general feedback, you can skip this.</p>
+                    </div>
+
+                    <!-- Response Preference (NEW) -->
+                    <div class="form-group">
+                        <label>Would you like a response? <span class="optional-tag">(Optional)</span></label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="response" value="yes">
+                                <span>Yes, please contact me</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="response" value="no">
+                                <span>No, just sharing feedback</span>
+                            </label>
+                        </div>
+                        <p class="field-note">This helps us prioritize replies to those who need them.</p>
                     </div>
 
                     <div class="form-group">
@@ -798,7 +811,7 @@
                     <input type="text" name="_gotcha" style="display:none">
 
                     <button type="submit" class="btn btn-primary">Send Message</button>
-                    <p class="form-note">We'll respond within 24 hours via your preferred contact method.</p>
+                    <p class="form-note">We'll respond within 24 hours if you've requested a reply.</p>
                 </form>
             </div>
         </div>
