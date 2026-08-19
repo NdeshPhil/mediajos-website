@@ -869,7 +869,7 @@ body {
     display: block;
 }
 
-/* SQUARE VIDEO FIX (for 1080x1080 reels) */
+/* Square Video Fix */
 .category-hero-video.square-video {
     max-width: 800px;
     margin: 0 auto;
@@ -1352,7 +1352,7 @@ body {
 }
 
 /* ========================================
-   APPRECIATION CARD SECTION (NEW - Atlas Copco)
+   APPRECIATION CARD SECTION
    ======================================== */
 .appreciation-card-section {
     padding: 60px 0;
@@ -1473,7 +1473,7 @@ body {
 }
 
 /* ========================================
-   SIMPLE CONTACT FORM SECTION
+   SIMPLE CONTACT FORM SECTION (UPDATED)
    ======================================== */
 .contact-form-section {
     padding: 80px 0;
@@ -1526,6 +1526,14 @@ body {
 .simple-form input::placeholder,
 .simple-form textarea::placeholder {
     color: rgba(255,255,255,0.5);
+}
+
+/* Contact Field Note - NEW */
+.field-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 5px;
+    font-style: italic;
 }
 
 .simple-form .btn-primary {
