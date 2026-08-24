@@ -186,6 +186,35 @@ function initScrollAnimations() {
             });
         });
         
+        // Animate latest work section
+        gsap.from('.latest-work-section', {
+            scrollTrigger: {
+                trigger: '.latest-work-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+        
+        // Animate work cards with stagger
+        gsap.utils.toArray('.work-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: 'power3.out'
+            });
+        });
+        
         // Animate service items
         gsap.utils.toArray('.service-item').forEach((item, index) => {
             gsap.from(item, {
@@ -322,7 +351,7 @@ function initFallbackAnimations() {
         });
     }, { threshold: 0.2 });
     
-    document.querySelectorAll('.section-header, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .ratings-section, .contact-form-section, .contact-card').forEach(el => {
+    document.querySelectorAll('.section-header, .latest-work-section, .work-card, .service-item, .category-section, .why-choose-item, .quote-container, .partners-section, .ratings-section, .contact-form-section, .contact-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         observer.observe(el);
@@ -492,7 +521,7 @@ function createLightbox(src, alt) {
 // 11. MOBILE VIDEOS OPTIMIZATION
 // ========================================
 function initMobileVideos() {
-    const mobileVideos = document.querySelectorAll('.mobile-video, .reel-video, .vibes-video, .category-hero-video video');
+    const mobileVideos = document.querySelectorAll('.mobile-video, .reel-video, .vibes-video, .category-hero-video video, .founder-interview');
     
     mobileVideos.forEach(video => {
         video.setAttribute('preload', 'metadata');
@@ -850,7 +879,7 @@ function initLoadingAnimation() {
 // 21. VIDEO OPTIMIZATION
 // ========================================
 function initVideoOptimization() {
-    const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item, .vibes-video-wrapper');
+    const videoContainers = document.querySelectorAll('.category-hero-video, .mobile-video-item, .reel-item, .vibes-video-wrapper, .founder-video-wrapper');
     
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -1004,13 +1033,15 @@ window.addEventListener('error', (e) => {
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
-console.log('About section: ✅');
+console.log('About section: ✅ (Founder interview added)');
+console.log('Latest Work section: ✅ (NEW)');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
 console.log('Portrait gallery: ✅');
 console.log('Editing reels: ✅');
 console.log('Partners animation: ✅');
 console.log('Ratings section: ✅');
+console.log('Appreciation card: ✅');
 console.log('Simple contact form: ✅');
 console.log('Contact section: ✅');
 console.log('Team vibes: ✅');
