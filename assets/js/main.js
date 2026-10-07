@@ -917,10 +917,15 @@ function initCounterAnimation() {
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
-                        counter.textContent = target + (counter.getAttribute('data-target') === '8' ? '+' : '+');
+                        // Append "+" for the 10+ years, 100+ clients, 500+ projects stats
+                        const targetValue = counter.getAttribute('data-target');
+                        const suffix = (targetValue === '10' || targetValue === '100' || targetValue === '500') ? '+' : '';
+                        counter.textContent = target + suffix;
                         clearInterval(timer);
                     } else {
-                        counter.textContent = Math.floor(current) + (counter.getAttribute('data-target') === '8' ? '+' : '');
+                        const targetValue = counter.getAttribute('data-target');
+                        const suffix = (targetValue === '10') ? '+' : '';
+                        counter.textContent = Math.floor(current) + suffix;
                     }
                 }, 30);
                 
@@ -1033,8 +1038,8 @@ window.addEventListener('error', (e) => {
 // ========================================
 console.log('%c🎬 Mediajos Productions', 'font-size: 20px; color: #D4AF37;');
 console.log('Hero video: ✅');
-console.log('About section: ✅ (Founder interview added)');
-console.log('Latest Work section: ✅ (NEW)');
+console.log('About section: ✅ (10+ years mainstream media)');
+console.log('Latest Work section: ✅');
 console.log('Services section: ✅');
 console.log('Category galleries: ✅');
 console.log('Portrait gallery: ✅');
